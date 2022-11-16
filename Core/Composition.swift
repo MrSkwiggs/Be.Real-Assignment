@@ -8,11 +8,23 @@
 import Foundation
 
 public class Composition {
-    public init() {}
+    
+    public let loginProvider: LoginContract
+    
+    public init(loginProvider: LoginContract) {
+        self.loginProvider = loginProvider
+    }
 }
 
 public extension Composition {
     
     /// Main composition root for production environment
-    static let main: Composition = .init()
+    static func main() -> Composition {
+        .init(loginProvider: LoginProvider())
+    }
+    
+    /// Mock composition root for testing purposes
+    static func mock() -> Composition {
+        .init(loginProvider: Mock.LoginProvider())
+    }
 }
