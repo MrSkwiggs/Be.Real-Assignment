@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E7BE081F292540810097ED64 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE081E292540810097ED64 /* ContentView.swift */; };
 		E7BE0821292540820097ED64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7BE0820292540820097ED64 /* Assets.xcassets */; };
 		E7BE0824292540820097ED64 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7BE0823292540820097ED64 /* Preview Assets.xcassets */; };
 		E7BE082E292540830097ED64 /* Be_FolderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE082D292540830097ED64 /* Be_FolderTests.swift */; };
@@ -26,9 +25,29 @@
 		E7BE0881292543140097ED64 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7BE0877292543140097ED64 /* Networking.framework */; };
 		E7BE0888292543140097ED64 /* NetworkingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE0887292543140097ED64 /* NetworkingTests.swift */; };
 		E7BE0889292543140097ED64 /* Networking.h in Headers */ = {isa = PBXBuildFile; fileRef = E7BE0879292543140097ED64 /* Networking.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E7BE088C292543140097ED64 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7BE0877292543140097ED64 /* Networking.framework */; };
-		E7BE088D292543140097ED64 /* Networking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7BE0877292543140097ED64 /* Networking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E7BE08952925438F0097ED64 /* Composition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE08942925438F0097ED64 /* Composition.swift */; };
+		E7BE0898292550180097ED64 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE0897292550180097ED64 /* LoginView.swift */; };
+		E7BE089A292550230097ED64 /* LoginView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE0899292550230097ED64 /* LoginView+ViewModel.swift */; };
+		E7BE089D292555220097ED64 /* LoginContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE089C292555220097ED64 /* LoginContract.swift */; };
+		E7BE08A029255CF00097ED64 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE089F29255CF00097ED64 /* User.swift */; };
+		E7BE08A229255DFA0097ED64 /* Inode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE08A129255DFA0097ED64 /* Inode.swift */; };
+		E7BE08A429255E890097ED64 /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE08A329255E890097ED64 /* Folder.swift */; };
+		E7BE08A629255E950097ED64 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE08A529255E950097ED64 /* File.swift */; };
+		E7BE08A82925632D0097ED64 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7BE0877292543140097ED64 /* Networking.framework */; };
+		E7BE08A92925632D0097ED64 /* Networking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7BE0877292543140097ED64 /* Networking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E7BE08AF292563D00097ED64 /* BeFolderAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE08AE292563D00097ED64 /* BeFolderAPI.swift */; };
+		E7BE08B42925656C0097ED64 /* Netswift in Frameworks */ = {isa = PBXBuildFile; productRef = E7BE08B32925656C0097ED64 /* Netswift */; };
+		E7BE08B62925667A0097ED64 /* BeFolderEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE08B52925667A0097ED64 /* BeFolderEndpoint.swift */; };
+		E7BE08B929256D4A0097ED64 /* LoginProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE08B829256D4A0097ED64 /* LoginProvider.swift */; };
+		E7BE08BB292570110097ED64 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE08BA292570110097ED64 /* Login.swift */; };
+		E7BE08BD29257C540097ED64 /* ViewModelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE08BC29257C540097ED64 /* ViewModelProvider.swift */; };
+		E7BE08C029257EE60097ED64 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE08BF29257EE60097ED64 /* Session.swift */; };
+		E7BE08C2292583430097ED64 /* RootView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE08C1292583430097ED64 /* RootView+ViewModel.swift */; };
+		E7BE08C529258EEE0097ED64 /* RequestHeader+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE08C429258EEE0097ED64 /* RequestHeader+Convenience.swift */; };
+		E7BE08C729258F230097ED64 /* BeFolderAPI+User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE08C629258F230097ED64 /* BeFolderAPI+User.swift */; };
+		E7BE08CB292592980097ED64 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE08CA292592980097ED64 /* Mock.swift */; };
+		E7BE08CD292592B00097ED64 /* Mock+LoginProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE08CC292592B00097ED64 /* Mock+LoginProvider.swift */; };
+		E7BE08D02925963C0097ED64 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE08CF2925963C0097ED64 /* Mock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,7 +100,7 @@
 			remoteGlobalIDString = E7BE0818292540810097ED64;
 			remoteInfo = Be.Folder;
 		};
-		E7BE088A292543140097ED64 /* PBXContainerItemProxy */ = {
+		E7BE08AA2925632D0097ED64 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E7BE0811292540810097ED64 /* Project object */;
 			proxyType = 1;
@@ -97,8 +116,18 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				E7BE088D292543140097ED64 /* Networking.framework in Embed Frameworks */,
 				E7BE086A292543070097ED64 /* Core.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E7BE08AC2925632D0097ED64 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E7BE08A92925632D0097ED64 /* Networking.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -107,7 +136,6 @@
 
 /* Begin PBXFileReference section */
 		E7BE0819292540810097ED64 /* Be.Folder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Be.Folder.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E7BE081E292540810097ED64 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E7BE0820292540820097ED64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E7BE0823292540820097ED64 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E7BE0829292540830097ED64 /* Be.FolderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Be.FolderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,6 +157,25 @@
 		E7BE0880292543140097ED64 /* NetworkingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetworkingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7BE0887292543140097ED64 /* NetworkingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingTests.swift; sourceTree = "<group>"; };
 		E7BE08942925438F0097ED64 /* Composition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Composition.swift; sourceTree = "<group>"; };
+		E7BE0897292550180097ED64 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		E7BE0899292550230097ED64 /* LoginView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginView+ViewModel.swift"; sourceTree = "<group>"; };
+		E7BE089C292555220097ED64 /* LoginContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginContract.swift; sourceTree = "<group>"; };
+		E7BE089F29255CF00097ED64 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E7BE08A129255DFA0097ED64 /* Inode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inode.swift; sourceTree = "<group>"; };
+		E7BE08A329255E890097ED64 /* Folder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Folder.swift; sourceTree = "<group>"; };
+		E7BE08A529255E950097ED64 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		E7BE08AE292563D00097ED64 /* BeFolderAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeFolderAPI.swift; sourceTree = "<group>"; };
+		E7BE08B52925667A0097ED64 /* BeFolderEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeFolderEndpoint.swift; sourceTree = "<group>"; };
+		E7BE08B829256D4A0097ED64 /* LoginProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProvider.swift; sourceTree = "<group>"; };
+		E7BE08BA292570110097ED64 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		E7BE08BC29257C540097ED64 /* ViewModelProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelProvider.swift; sourceTree = "<group>"; };
+		E7BE08BF29257EE60097ED64 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		E7BE08C1292583430097ED64 /* RootView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RootView+ViewModel.swift"; sourceTree = "<group>"; };
+		E7BE08C429258EEE0097ED64 /* RequestHeader+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RequestHeader+Convenience.swift"; sourceTree = "<group>"; };
+		E7BE08C629258F230097ED64 /* BeFolderAPI+User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BeFolderAPI+User.swift"; sourceTree = "<group>"; };
+		E7BE08CA292592980097ED64 /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
+		E7BE08CC292592B00097ED64 /* Mock+LoginProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Mock+LoginProvider.swift"; sourceTree = "<group>"; };
+		E7BE08CF2925963C0097ED64 /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,7 +183,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7BE088C292543140097ED64 /* Networking.framework in Frameworks */,
 				E7BE0869292543070097ED64 /* Core.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -159,6 +205,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7BE08A82925632D0097ED64 /* Networking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,6 +221,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7BE08B42925656C0097ED64 /* Netswift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,6 +247,7 @@
 				E7BE0878292543140097ED64 /* Networking */,
 				E7BE0886292543140097ED64 /* NetworkingTests */,
 				E7BE081A292540810097ED64 /* Products */,
+				E7BE08A72925632D0097ED64 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -221,7 +270,6 @@
 			children = (
 				E7BE084E292542B40097ED64 /* Composition */,
 				E7BE084A2925429B0097ED64 /* Scenes */,
-				E7BE081E292540810097ED64 /* ContentView.swift */,
 				E7BE0820292540820097ED64 /* Assets.xcassets */,
 				E7BE0822292540820097ED64 /* Preview Content */,
 				E7BE08462925420C0097ED64 /* SceneDelegate.swift */,
@@ -258,6 +306,7 @@
 		E7BE084A2925429B0097ED64 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				E7BE08962925500D0097ED64 /* Login */,
 				E7BE084B292542A20097ED64 /* Root */,
 			);
 			path = Scenes;
@@ -267,6 +316,7 @@
 			isa = PBXGroup;
 			children = (
 				E7BE084C292542A80097ED64 /* RootView.swift */,
+				E7BE08C1292583430097ED64 /* RootView+ViewModel.swift */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -274,6 +324,7 @@
 		E7BE084E292542B40097ED64 /* Composition */ = {
 			isa = PBXGroup;
 			children = (
+				E7BE08BC29257C540097ED64 /* ViewModelProvider.swift */,
 			);
 			path = Composition;
 			sourceTree = "<group>";
@@ -281,6 +332,8 @@
 		E7BE0855292543070097ED64 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				E7BE08BE29257EE10097ED64 /* Models */,
+				E7BE089B2925550D0097ED64 /* Use Cases */,
 				E7BE0856292543070097ED64 /* Core.h */,
 				E7BE0857292543070097ED64 /* Core.docc */,
 				E7BE08942925438F0097ED64 /* Composition.swift */,
@@ -299,6 +352,9 @@
 		E7BE0878292543140097ED64 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				E7BE08C329258EE40097ED64 /* Extensions */,
+				E7BE08AD292563A90097ED64 /* Endpoints */,
+				E7BE089E29255CE40097ED64 /* Models */,
 				E7BE0879292543140097ED64 /* Networking.h */,
 				E7BE087A292543140097ED64 /* Networking.docc */,
 			);
@@ -311,6 +367,104 @@
 				E7BE0887292543140097ED64 /* NetworkingTests.swift */,
 			);
 			path = NetworkingTests;
+			sourceTree = "<group>";
+		};
+		E7BE08962925500D0097ED64 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E7BE0897292550180097ED64 /* LoginView.swift */,
+				E7BE0899292550230097ED64 /* LoginView+ViewModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		E7BE089B2925550D0097ED64 /* Use Cases */ = {
+			isa = PBXGroup;
+			children = (
+				E7BE08C92925928F0097ED64 /* Mocks */,
+				E7BE08B729256D3F0097ED64 /* Login */,
+			);
+			path = "Use Cases";
+			sourceTree = "<group>";
+		};
+		E7BE089E29255CE40097ED64 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E7BE08CE292596340097ED64 /* Mocks */,
+				E7BE089F29255CF00097ED64 /* User.swift */,
+				E7BE08A129255DFA0097ED64 /* Inode.swift */,
+				E7BE08A329255E890097ED64 /* Folder.swift */,
+				E7BE08A529255E950097ED64 /* File.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E7BE08A72925632D0097ED64 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E7BE08AD292563A90097ED64 /* Endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				E7BE08C829258FED0097ED64 /* Common */,
+				E7BE08C629258F230097ED64 /* BeFolderAPI+User.swift */,
+			);
+			path = Endpoints;
+			sourceTree = "<group>";
+		};
+		E7BE08B729256D3F0097ED64 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E7BE089C292555220097ED64 /* LoginContract.swift */,
+				E7BE08B829256D4A0097ED64 /* LoginProvider.swift */,
+				E7BE08BA292570110097ED64 /* Login.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		E7BE08BE29257EE10097ED64 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E7BE08BF29257EE60097ED64 /* Session.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E7BE08C329258EE40097ED64 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E7BE08C429258EEE0097ED64 /* RequestHeader+Convenience.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E7BE08C829258FED0097ED64 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				E7BE08AE292563D00097ED64 /* BeFolderAPI.swift */,
+				E7BE08B52925667A0097ED64 /* BeFolderEndpoint.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		E7BE08C92925928F0097ED64 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				E7BE08CA292592980097ED64 /* Mock.swift */,
+				E7BE08CC292592B00097ED64 /* Mock+LoginProvider.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		E7BE08CE292596340097ED64 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				E7BE08CF2925963C0097ED64 /* Mock.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -348,9 +502,10 @@
 			);
 			dependencies = (
 				E7BE0868292543070097ED64 /* PBXTargetDependency */,
-				E7BE088B292543140097ED64 /* PBXTargetDependency */,
 			);
 			name = Be.Folder;
+			packageProductDependencies = (
+			);
 			productName = Be.Folder;
 			productReference = E7BE0819292540810097ED64 /* Be.Folder.app */;
 			productType = "com.apple.product-type.application";
@@ -399,10 +554,12 @@
 				E7BE0850292543070097ED64 /* Sources */,
 				E7BE0851292543070097ED64 /* Frameworks */,
 				E7BE0852292543070097ED64 /* Resources */,
+				E7BE08AC2925632D0097ED64 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				E7BE08AB2925632D0097ED64 /* PBXTargetDependency */,
 			);
 			name = Core;
 			productName = Core;
@@ -442,6 +599,9 @@
 			dependencies = (
 			);
 			name = Networking;
+			packageProductDependencies = (
+				E7BE08B32925656C0097ED64 /* Netswift */,
+			);
 			productName = Networking;
 			productReference = E7BE0877292543140097ED64 /* Networking.framework */;
 			productType = "com.apple.product-type.framework";
@@ -511,6 +671,9 @@
 				Base,
 			);
 			mainGroup = E7BE0810292540810097ED64;
+			packageReferences = (
+				E7BE08B0292565550097ED64 /* XCRemoteSwiftPackageReference "Netswift" */,
+			);
 			productRefGroup = E7BE081A292540810097ED64 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -586,8 +749,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7BE0849292542280097ED64 /* AppDelegate.swift in Sources */,
-				E7BE081F292540810097ED64 /* ContentView.swift in Sources */,
+				E7BE08C2292583430097ED64 /* RootView+ViewModel.swift in Sources */,
+				E7BE089A292550230097ED64 /* LoginView+ViewModel.swift in Sources */,
+				E7BE08BD29257C540097ED64 /* ViewModelProvider.swift in Sources */,
 				E7BE08472925420C0097ED64 /* SceneDelegate.swift in Sources */,
+				E7BE0898292550180097ED64 /* LoginView.swift in Sources */,
 				E7BE084D292542A80097ED64 /* RootView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -614,6 +780,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7BE08952925438F0097ED64 /* Composition.swift in Sources */,
+				E7BE08BB292570110097ED64 /* Login.swift in Sources */,
+				E7BE08C029257EE60097ED64 /* Session.swift in Sources */,
+				E7BE08CB292592980097ED64 /* Mock.swift in Sources */,
+				E7BE08CD292592B00097ED64 /* Mock+LoginProvider.swift in Sources */,
+				E7BE089D292555220097ED64 /* LoginContract.swift in Sources */,
+				E7BE08B929256D4A0097ED64 /* LoginProvider.swift in Sources */,
 				E7BE0858292543070097ED64 /* Core.docc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -630,7 +802,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7BE08A629255E950097ED64 /* File.swift in Sources */,
+				E7BE08D02925963C0097ED64 /* Mock.swift in Sources */,
+				E7BE08B62925667A0097ED64 /* BeFolderEndpoint.swift in Sources */,
+				E7BE08AF292563D00097ED64 /* BeFolderAPI.swift in Sources */,
+				E7BE08A029255CF00097ED64 /* User.swift in Sources */,
+				E7BE08C529258EEE0097ED64 /* RequestHeader+Convenience.swift in Sources */,
+				E7BE08C729258F230097ED64 /* BeFolderAPI+User.swift in Sources */,
 				E7BE087B292543140097ED64 /* Networking.docc in Sources */,
+				E7BE08A229255DFA0097ED64 /* Inode.swift in Sources */,
+				E7BE08A429255E890097ED64 /* Folder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -680,10 +861,10 @@
 			target = E7BE0818292540810097ED64 /* Be.Folder */;
 			targetProxy = E7BE0884292543140097ED64 /* PBXContainerItemProxy */;
 		};
-		E7BE088B292543140097ED64 /* PBXTargetDependency */ = {
+		E7BE08AB2925632D0097ED64 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = E7BE0876292543140097ED64 /* Networking */;
-			targetProxy = E7BE088A292543140097ED64 /* PBXContainerItemProxy */;
+			targetProxy = E7BE08AA2925632D0097ED64 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -814,8 +995,6 @@
 				DEVELOPMENT_TEAM = 45V7YBK65N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -848,8 +1027,6 @@
 				DEVELOPMENT_TEAM = 45V7YBK65N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -1214,6 +1391,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E7BE08B0292565550097ED64 /* XCRemoteSwiftPackageReference "Netswift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MrSkwiggs/Netswift";
+			requirement = {
+				kind = exactVersion;
+				version = 0.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E7BE08B32925656C0097ED64 /* Netswift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E7BE08B0292565550097ED64 /* XCRemoteSwiftPackageReference "Netswift" */;
+			productName = Netswift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E7BE0811292540810097ED64 /* Project object */;
 }
