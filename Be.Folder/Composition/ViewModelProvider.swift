@@ -38,5 +38,9 @@ extension ViewModelProvider {
             self.session = session
             self.root = root
         }
+        
+        var folderContentsViewModel: FolderView.ViewModel {
+            .init(session: session)
+        }
     }
 }

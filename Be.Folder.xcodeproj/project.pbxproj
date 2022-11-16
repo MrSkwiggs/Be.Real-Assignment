@@ -48,6 +48,11 @@
 		E7BE08CB292592980097ED64 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE08CA292592980097ED64 /* Mock.swift */; };
 		E7BE08CD292592B00097ED64 /* Mock+LoginProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE08CC292592B00097ED64 /* Mock+LoginProvider.swift */; };
 		E7BE08D02925963C0097ED64 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE08CF2925963C0097ED64 /* Mock.swift */; };
+		E7BE08D229259A590097ED64 /* BeFolderAPI+Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE08D129259A590097ED64 /* BeFolderAPI+Item.swift */; };
+		E7BE08D529259DA30097ED64 /* BeFolderAPI.Item.FolderContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE08D429259DA30097ED64 /* BeFolderAPI.Item.FolderContents.swift */; };
+		E7BE08DA29259F220097ED64 /* FolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE08D929259F220097ED64 /* FolderView.swift */; };
+		E7BE08DC29259F4F0097ED64 /* FolderView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE08DB29259F4F0097ED64 /* FolderView+ViewModel.swift */; };
+		E7BE08DF29259FB70097ED64 /* FolderContentsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE08DE29259FB70097ED64 /* FolderContentsProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -176,6 +181,11 @@
 		E7BE08CA292592980097ED64 /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
 		E7BE08CC292592B00097ED64 /* Mock+LoginProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Mock+LoginProvider.swift"; sourceTree = "<group>"; };
 		E7BE08CF2925963C0097ED64 /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
+		E7BE08D129259A590097ED64 /* BeFolderAPI+Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BeFolderAPI+Item.swift"; sourceTree = "<group>"; };
+		E7BE08D429259DA30097ED64 /* BeFolderAPI.Item.FolderContents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeFolderAPI.Item.FolderContents.swift; sourceTree = "<group>"; };
+		E7BE08D929259F220097ED64 /* FolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderView.swift; sourceTree = "<group>"; };
+		E7BE08DB29259F4F0097ED64 /* FolderView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FolderView+ViewModel.swift"; sourceTree = "<group>"; };
+		E7BE08DE29259FB70097ED64 /* FolderContentsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderContentsProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -306,6 +316,7 @@
 		E7BE084A2925429B0097ED64 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				E7BE08D629259EF60097ED64 /* Folder */,
 				E7BE08962925500D0097ED64 /* Login */,
 				E7BE084B292542A20097ED64 /* Root */,
 			);
@@ -381,6 +392,7 @@
 		E7BE089B2925550D0097ED64 /* Use Cases */ = {
 			isa = PBXGroup;
 			children = (
+				E7BE08DD29259FA50097ED64 /* Folder */,
 				E7BE08C92925928F0097ED64 /* Mocks */,
 				E7BE08B729256D3F0097ED64 /* Login */,
 			);
@@ -411,6 +423,7 @@
 			children = (
 				E7BE08C829258FED0097ED64 /* Common */,
 				E7BE08C629258F230097ED64 /* BeFolderAPI+User.swift */,
+				E7BE08D329259D880097ED64 /* Items */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -465,6 +478,32 @@
 				E7BE08CF2925963C0097ED64 /* Mock.swift */,
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		E7BE08D329259D880097ED64 /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				E7BE08D129259A590097ED64 /* BeFolderAPI+Item.swift */,
+				E7BE08D429259DA30097ED64 /* BeFolderAPI.Item.FolderContents.swift */,
+			);
+			path = Items;
+			sourceTree = "<group>";
+		};
+		E7BE08D629259EF60097ED64 /* Folder */ = {
+			isa = PBXGroup;
+			children = (
+				E7BE08D929259F220097ED64 /* FolderView.swift */,
+				E7BE08DB29259F4F0097ED64 /* FolderView+ViewModel.swift */,
+			);
+			path = Folder;
+			sourceTree = "<group>";
+		};
+		E7BE08DD29259FA50097ED64 /* Folder */ = {
+			isa = PBXGroup;
+			children = (
+				E7BE08DE29259FB70097ED64 /* FolderContentsProvider.swift */,
+			);
+			path = Folder;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -750,10 +789,12 @@
 			files = (
 				E7BE0849292542280097ED64 /* AppDelegate.swift in Sources */,
 				E7BE08C2292583430097ED64 /* RootView+ViewModel.swift in Sources */,
+				E7BE08DA29259F220097ED64 /* FolderView.swift in Sources */,
 				E7BE089A292550230097ED64 /* LoginView+ViewModel.swift in Sources */,
 				E7BE08BD29257C540097ED64 /* ViewModelProvider.swift in Sources */,
 				E7BE08472925420C0097ED64 /* SceneDelegate.swift in Sources */,
 				E7BE0898292550180097ED64 /* LoginView.swift in Sources */,
+				E7BE08DC29259F4F0097ED64 /* FolderView+ViewModel.swift in Sources */,
 				E7BE084D292542A80097ED64 /* RootView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -782,6 +823,7 @@
 				E7BE08952925438F0097ED64 /* Composition.swift in Sources */,
 				E7BE08BB292570110097ED64 /* Login.swift in Sources */,
 				E7BE08C029257EE60097ED64 /* Session.swift in Sources */,
+				E7BE08DF29259FB70097ED64 /* FolderContentsProvider.swift in Sources */,
 				E7BE08CB292592980097ED64 /* Mock.swift in Sources */,
 				E7BE08CD292592B00097ED64 /* Mock+LoginProvider.swift in Sources */,
 				E7BE089D292555220097ED64 /* LoginContract.swift in Sources */,
@@ -803,6 +845,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7BE08A629255E950097ED64 /* File.swift in Sources */,
+				E7BE08D529259DA30097ED64 /* BeFolderAPI.Item.FolderContents.swift in Sources */,
 				E7BE08D02925963C0097ED64 /* Mock.swift in Sources */,
 				E7BE08B62925667A0097ED64 /* BeFolderEndpoint.swift in Sources */,
 				E7BE08AF292563D00097ED64 /* BeFolderAPI.swift in Sources */,
@@ -812,6 +855,7 @@
 				E7BE087B292543140097ED64 /* Networking.docc in Sources */,
 				E7BE08A229255DFA0097ED64 /* Inode.swift in Sources */,
 				E7BE08A429255E890097ED64 /* Folder.swift in Sources */,
+				E7BE08D229259A590097ED64 /* BeFolderAPI+Item.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

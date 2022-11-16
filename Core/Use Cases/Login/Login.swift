@@ -17,6 +17,8 @@ public extension Login {
         /// Unable to generate a base-64 encoded token
         case failedTokenEncoding
         /// Authentication failed because of credentials
-        case loginFailed
+        case authFailed
+        /// Something went wrong with the network request
+        case networkError(error: Swift.Error)
     }
 }

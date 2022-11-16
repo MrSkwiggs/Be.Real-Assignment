@@ -35,7 +35,13 @@ public class BeFolderAPI {
 }
 
 public extension BeFolderAPI {
-    func user(_ request: User.Request, token: String) -> BeFolderEndpoint<Networking.User> {
-        User(token: token, request: request)
+    func user(token: String) -> BeFolderEndpoint<Networking.User> {
+        User(token: token)
+    }
+    
+    enum Items {
+        public static func folderContents(folderID: Inode.ID, token: String) -> BeFolderEndpoint<[Inode]> {
+            Item<[Inode]>.FolderContents(id: folderID, token: token)
+        }
     }
 }

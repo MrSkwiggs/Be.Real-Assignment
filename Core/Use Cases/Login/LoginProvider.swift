@@ -27,10 +27,15 @@ public class LoginProvider: LoginContract {
             publisher.send(.failure(.failedTokenEncoding))
             return publisher.eraseToAnyPublisher()
         }
-        BeFolderAPI().user(.me, token: token).perform { [weak self] result in
+        BeFolderAPI().user(token: token).perform { [weak self] result in
             publisher.send(
                 result
-                    .mapError({ _ in .loginFailed })
+                    .mapError({ error in
+                        guard error.category.httpStatusCode == 401 else {
+                            return .networkError(error: error)
+                        }
+                        return .authFailed
+                    })
                     .map({
                         self!.sessionSubject.send(.init(user: $0, token: token))
                         return true

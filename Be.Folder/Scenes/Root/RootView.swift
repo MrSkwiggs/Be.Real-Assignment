@@ -22,6 +22,7 @@ struct RootView: View {
                 Text("Logged in")
                 Text("User: \(session.user.firstName) \(session.user.lastName)")
                 Text("RootFolder: \(session.user.rootFolder.name)")
+                FolderView(viewModel: viewModelProvider.sessionViewModelProvider(session: session).folderContentsViewModel)
             }
             .environmentObject(viewModelProvider.sessionViewModelProvider(session: session))
         } else {

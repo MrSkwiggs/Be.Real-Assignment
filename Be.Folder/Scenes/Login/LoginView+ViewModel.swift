@@ -67,9 +67,11 @@ extension LoginView {
                         case .invalidCharacter:
                             self.showError("Invalid character contained in username/password\nMake sure not to include any \":\" in either.")
                         case .failedTokenEncoding:
-                            self.showError("Something went wrong")
-                        case .loginFailed:
+                            self.showError("Unable to use these credentials.")
+                        case .authFailed:
                             self.showError("Invalid username and/or password\nMake sure you typed both correctly and try again")
+                        case .networkError:
+                            self.showError("Something went wrong while processing this request\n\(error.localizedDescription)")
                         }
                     }
                     self.isBusyLoggingIn = false
