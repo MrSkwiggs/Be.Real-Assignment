@@ -6,15 +6,36 @@
 //
 
 import SwiftUI
+import Core
 
 struct RootView: View {
+    
+    @EnvironmentObject
+    var viewModelProvider: ViewModelProvider
+    
+    @StateObject
+    var viewModel: ViewModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        if let session = viewModel.session {
+            VStack {
+                Text("Logged in")
+                Text("User: \(session.user.firstName) \(session.user.lastName)")
+                Text("RootFolder: \(session.user.rootFolder.name)")
+            }
+            .environmentObject(viewModelProvider.sessionViewModelProvider(session: session))
+        } else {
+            LoginView(viewModel: viewModelProvider.loginViewModel)
+        }
     }
 }
 
 struct RootView_Previews: PreviewProvider {
+    
+    static let viewModelProvider = ViewModelProvider(root: .mock())
+    
     static var previews: some View {
-        RootView()
+        RootView(viewModel: viewModelProvider.rootViewModel)
+            .environmentObject(ViewModelProvider(root: .mock()))
     }
 }
