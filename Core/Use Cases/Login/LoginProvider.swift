@@ -27,7 +27,7 @@ public class LoginProvider: LoginContract {
             publisher.send(.failure(.failedTokenEncoding))
             return publisher.eraseToAnyPublisher()
         }
-        BeFolderAPI().user(token: token).perform { [weak self] result in
+        BeFolderAPI.User(token: token).perform { [weak self] result in
             publisher.send(
                 result
                     .mapError({ error in

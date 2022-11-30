@@ -15,6 +15,9 @@ struct FolderView: View {
     @StateObject
     var viewModel: ViewModel
     
+    @State
+    var showFolderCreationSheet: Bool = false
+    
     var body: some View {
         List {
             if viewModel.hasError {
@@ -52,6 +55,19 @@ struct FolderView: View {
                     }
                 }
             }
+        }
+        .toolbar(content: {
+            ToolbarItem {
+                Button {
+                    showFolderCreationSheet = true
+                } label: {
+                    Image(systemName: "folder.badge.plus")
+                }
+            }
+        })
+        .sheet(isPresented: $showFolderCreationSheet) {
+            CreateNewFolderView(viewModel: viewModel.createFolderViewModel(from: viewModelProvider))
+                .presentationDetents([.medium])
         }
     }
 }

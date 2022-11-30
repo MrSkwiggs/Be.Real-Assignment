@@ -12,7 +12,7 @@ public class BeFolderEndpoint<Response: Decodable>: BeFolderAPI, NetswiftRequest
     
     let token: String
     
-    init(token: String) {
+    public init(token: String) {
         self.token = token
         super.init()
     }
@@ -22,6 +22,13 @@ public class BeFolderEndpoint<Response: Decodable>: BeFolderAPI, NetswiftRequest
     public var port: String { "8080" }
     public var path: String? { nil }
     public var query: String? { nil }
+    public var method: NetswiftHTTPMethod { .get }
+    public var additionalHeaders: [RequestHeader] { [] }
+    public var contentType: MimeType { .json }
+    public var bodyEncoder: NetswiftEncoder? { nil }
+    public func body(encodedBy encoder: NetswiftEncoder?) throws -> Data? {
+        nil
+    }
     
     public var url: URL {
         let scheme = self.scheme
@@ -46,6 +53,14 @@ public class BeFolderEndpoint<Response: Decodable>: BeFolderAPI, NetswiftRequest
         headers.append(.basicAuthentication(token: token))
         
         request.setHeaders(headers)
+        
+        do {
+            if let encoder = bodyEncoder {
+                request.httpBody = try body(encodedBy: encoder)
+            }
+        } catch {
+            return .failure(.init(.requestSerialisationError))
+        }
         
         return .success(request)
     }

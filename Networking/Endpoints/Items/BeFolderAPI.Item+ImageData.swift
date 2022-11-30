@@ -10,7 +10,7 @@ import Netswift
 
 public extension BeFolderAPI.Item {
     class ImageData: BeFolderEndpoint<Data> {
-        internal init(id: Inode.ID, token: String) {
+        public init(id: Inode.ID, token: String) {
             self.id = id
             super.init(token: token)
         }

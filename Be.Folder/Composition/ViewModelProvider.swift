@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 import Core
+import Networking
 
 class ViewModelProvider: ObservableObject {
     private let root: Composition
@@ -33,7 +34,7 @@ extension ViewModelProvider {
     class SessionViewModelProvider: ObservableObject {
         private let session: Session
         private let root: Composition
-        private let folderContentsProvider: FolderContentsProvider
+        private let folderContentsProvider: FolderRepository
         private let imageDataProvider: ImageDataProvider
         
         init(session: Session, root: Composition) {
@@ -53,6 +54,10 @@ extension ViewModelProvider {
         
         func imageDataViewModel(imageID: String) -> ImageView.ViewModel {
             .init(imageID: imageID, imageDataProvider: imageDataProvider)
+        }
+        
+        func createFolderViewModel(currentFolderID: String, then callback: @escaping (Inode?) -> Void) -> FolderView.CreateNewFolderView.ViewModel {
+            .init(currentFolderID: currentFolderID, folderRepository: folderContentsProvider, onFolderCreated: callback)
         }
     }
 }

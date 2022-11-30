@@ -20,8 +20,8 @@ public class ImageDataProvider {
         let publisher = PassthroughSubject<Data, Error>()
         
         BeFolderAPI
-            .Items
-            .imageData(imageID: imageID, token: token)
+            .Item
+            .ImageData(id: imageID, token: token)
             .perform { result in
                 switch result {
                 case let .failure(error):

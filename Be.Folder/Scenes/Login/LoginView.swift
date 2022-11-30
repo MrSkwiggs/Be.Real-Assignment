@@ -65,7 +65,6 @@ struct LoginView: View {
                     Section {
                         Text(error)
                             .font(.footnote)
-                        //                            .bold()
                             .foregroundColor(.red)
                     }
                     .animation(.default, value: viewModel.error)

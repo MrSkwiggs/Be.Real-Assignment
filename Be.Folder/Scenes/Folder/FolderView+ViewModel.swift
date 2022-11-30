@@ -14,7 +14,7 @@ extension FolderView {
     class ViewModel: ObservableObject {
         
         private let currentFolderID: String
-        private let folderContentsProvider: FolderContentsProvider
+        private let folderContentsProvider: FolderRepository
         
         @Published
         var folders: [String: String] = [:]
@@ -27,7 +27,7 @@ extension FolderView {
         
         private var fetch: AnyCancellable?
         
-        init(folderID: String, folderContentsProvider: FolderContentsProvider) {
+        init(folderID: String, folderContentsProvider: FolderRepository) {
             self.currentFolderID = folderID
             self.folderContentsProvider = folderContentsProvider
             
@@ -59,6 +59,12 @@ extension FolderView {
         
         func retry() {
             getFolderContents()
+        }
+        
+        func createFolderViewModel(from viewModelProvider: ViewModelProvider.SessionViewModelProvider) -> CreateNewFolderView.ViewModel {
+            viewModelProvider.createFolderViewModel(currentFolderID: currentFolderID) { inode in
+                self.getFolderContents()
+            }
         }
     }
 }
