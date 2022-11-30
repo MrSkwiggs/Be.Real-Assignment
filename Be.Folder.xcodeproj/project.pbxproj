@@ -58,6 +58,8 @@
 		E7F3D1AA2937A4050031B4A0 /* ImageDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F3D1A92937A4050031B4A0 /* ImageDataProvider.swift */; };
 		E7F3D1B22937A4D40031B4A0 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F3D1B12937A4D40031B4A0 /* Error.swift */; };
 		E7F3D1B42937A52C0031B4A0 /* BeFolderAPI.Item+ImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F3D1B32937A52C0031B4A0 /* BeFolderAPI.Item+ImageData.swift */; };
+		E7F3D1B52937ACDF0031B4A0 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7BE0877292543140097ED64 /* Networking.framework */; };
+		E7F3D1B62937ACDF0031B4A0 /* Networking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7BE0877292543140097ED64 /* Networking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +119,13 @@
 			remoteGlobalIDString = E7BE0876292543140097ED64;
 			remoteInfo = Networking;
 		};
+		E7F3D1B72937ACDF0031B4A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E7BE0811292540810097ED64 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E7BE0876292543140097ED64;
+			remoteInfo = Networking;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -126,6 +135,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				E7F3D1B62937ACDF0031B4A0 /* Networking.framework in Embed Frameworks */,
 				E7BE086A292543070097ED64 /* Core.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -203,6 +213,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7F3D1B52937ACDF0031B4A0 /* Networking.framework in Frameworks */,
 				E7BE0869292543070097ED64 /* Core.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -580,6 +591,7 @@
 			);
 			dependencies = (
 				E7BE0868292543070097ED64 /* PBXTargetDependency */,
+				E7F3D1B82937ACDF0031B4A0 /* PBXTargetDependency */,
 			);
 			name = Be.Folder;
 			packageProductDependencies = (
@@ -954,6 +966,11 @@
 			target = E7BE0876292543140097ED64 /* Networking */;
 			targetProxy = E7BE08AA2925632D0097ED64 /* PBXContainerItemProxy */;
 		};
+		E7F3D1B82937ACDF0031B4A0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E7BE0876292543140097ED64 /* Networking */;
+			targetProxy = E7F3D1B72937ACDF0031B4A0 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
@@ -1007,7 +1024,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1061,7 +1078,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
