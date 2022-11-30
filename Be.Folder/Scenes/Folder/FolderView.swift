@@ -18,6 +18,9 @@ struct FolderView: View {
     @State
     var showFolderCreationSheet: Bool = false
     
+    @State
+    var showUploadFileSheet: Bool = false
+    
     var body: some View {
         List {
             if viewModel.hasError {
@@ -42,6 +45,8 @@ struct FolderView: View {
                         }
                     }
                 }
+            } else {
+                Text("No folders here...")
             }
             
             if !viewModel.images.isEmpty {
@@ -64,10 +69,21 @@ struct FolderView: View {
                     Image(systemName: "folder.badge.plus")
                 }
             }
+            
+            ToolbarItem {
+                Button {
+                    showUploadFileSheet = true
+                } label: {
+                    Image(systemName: "icloud.and.arrow.up")
+                }
+            }
         })
         .sheet(isPresented: $showFolderCreationSheet) {
             CreateNewFolderView(viewModel: viewModel.createFolderViewModel(from: viewModelProvider))
                 .presentationDetents([.medium])
+        }
+        .sheet(isPresented: $showUploadFileSheet) {
+            UploadImageView(viewModel: viewModel.uploadImageViewModel(from: viewModelProvider))
         }
     }
 }

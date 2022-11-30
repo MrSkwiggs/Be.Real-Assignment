@@ -47,5 +47,6 @@ public extension File {
     enum ContentType: String, Codable, Equatable {
         case jpg = "image/jpeg"
         case png = "image/png"
+        case octetStream = "application/octet-stream"
     }
 }

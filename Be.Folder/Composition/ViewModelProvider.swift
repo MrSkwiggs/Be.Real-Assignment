@@ -59,5 +59,9 @@ extension ViewModelProvider {
         func createFolderViewModel(currentFolderID: String, then callback: @escaping (Inode?) -> Void) -> FolderView.CreateNewFolderView.ViewModel {
             .init(currentFolderID: currentFolderID, folderRepository: folderContentsProvider, onFolderCreated: callback)
         }
+        
+        func uploadImageViewModel(currentFolderID: String) -> FolderView.UploadImageView.ViewModel {
+            .init(currentFolderID: currentFolderID, folderRepository: folderContentsProvider)
+        }
     }
 }

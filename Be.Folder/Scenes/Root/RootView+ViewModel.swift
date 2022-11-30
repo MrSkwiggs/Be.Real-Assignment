@@ -28,6 +28,7 @@ extension RootView {
         private func setupSubscriptions() {
             loginProvider
                 .sessionPublisher
+                .receive(on: DispatchQueue.main)
                 .sink { [weak self] session in
                     guard let self else { return }
                     self.session = session

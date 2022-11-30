@@ -63,6 +63,8 @@
 		E7F3D1BA2937B6D20031B4A0 /* BeFolderAPI.Item.CreateItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F3D1B92937B6D20031B4A0 /* BeFolderAPI.Item.CreateItem.swift */; };
 		E7F3D1BD2937D6D20031B4A0 /* FolderView+CreateNewFolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F3D1BC2937D6D20031B4A0 /* FolderView+CreateNewFolderView.swift */; };
 		E7F3D1BF2937D7190031B4A0 /* FolderView.CreateNewFolderView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F3D1BE2937D7190031B4A0 /* FolderView.CreateNewFolderView+ViewModel.swift */; };
+		E7F3D1C22937F77E0031B4A0 /* FolderView+UploadImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F3D1C12937F77E0031B4A0 /* FolderView+UploadImageView.swift */; };
+		E7F3D1C42937F7DA0031B4A0 /* FolderView.UploadImageView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F3D1C32937F7DA0031B4A0 /* FolderView.UploadImageView+ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -212,6 +214,8 @@
 		E7F3D1B92937B6D20031B4A0 /* BeFolderAPI.Item.CreateItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeFolderAPI.Item.CreateItem.swift; sourceTree = "<group>"; };
 		E7F3D1BC2937D6D20031B4A0 /* FolderView+CreateNewFolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FolderView+CreateNewFolderView.swift"; sourceTree = "<group>"; };
 		E7F3D1BE2937D7190031B4A0 /* FolderView.CreateNewFolderView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FolderView.CreateNewFolderView+ViewModel.swift"; sourceTree = "<group>"; };
+		E7F3D1C12937F77E0031B4A0 /* FolderView+UploadImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FolderView+UploadImageView.swift"; sourceTree = "<group>"; };
+		E7F3D1C32937F7DA0031B4A0 /* FolderView.UploadImageView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FolderView.UploadImageView+ViewModel.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -525,6 +529,7 @@
 		E7BE08D629259EF60097ED64 /* Folder */ = {
 			isa = PBXGroup;
 			children = (
+				E7F3D1C02937F76F0031B4A0 /* Upload */,
 				E7F3D1BB2937D6C10031B4A0 /* Create */,
 				E7BE08D929259F220097ED64 /* FolderView.swift */,
 				E7BE08DB29259F4F0097ED64 /* FolderView+ViewModel.swift */,
@@ -571,6 +576,15 @@
 				E7F3D1BE2937D7190031B4A0 /* FolderView.CreateNewFolderView+ViewModel.swift */,
 			);
 			path = Create;
+			sourceTree = "<group>";
+		};
+		E7F3D1C02937F76F0031B4A0 /* Upload */ = {
+			isa = PBXGroup;
+			children = (
+				E7F3D1C12937F77E0031B4A0 /* FolderView+UploadImageView.swift */,
+				E7F3D1C32937F7DA0031B4A0 /* FolderView.UploadImageView+ViewModel.swift */,
+			);
+			path = Upload;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -855,6 +869,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7F3D1C42937F7DA0031B4A0 /* FolderView.UploadImageView+ViewModel.swift in Sources */,
 				E7F3D1A52937A36F0031B4A0 /* ImageView.swift in Sources */,
 				E7BE0849292542280097ED64 /* AppDelegate.swift in Sources */,
 				E7BE08C2292583430097ED64 /* RootView+ViewModel.swift in Sources */,
@@ -867,6 +882,7 @@
 				E7BE08DC29259F4F0097ED64 /* FolderView+ViewModel.swift in Sources */,
 				E7F3D1A72937A3BE0031B4A0 /* ImageView+ViewModel.swift in Sources */,
 				E7F3D1BD2937D6D20031B4A0 /* FolderView+CreateNewFolderView.swift in Sources */,
+				E7F3D1C22937F77E0031B4A0 /* FolderView+UploadImageView.swift in Sources */,
 				E7BE084D292542A80097ED64 /* RootView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

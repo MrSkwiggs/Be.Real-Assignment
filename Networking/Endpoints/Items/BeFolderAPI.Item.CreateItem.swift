@@ -44,6 +44,7 @@ public extension BeFolderAPI.Item {
                 return .custom(type: "application/octet-stream")
             }
         }
+        public override var bodyEncoder: NetswiftEncoder? { JSONEncoder() }
         
         public override func body(encodedBy encoder: NetswiftEncoder?) throws -> Data? {
             switch itemType {

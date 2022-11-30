@@ -66,5 +66,9 @@ extension FolderView {
                 self.getFolderContents()
             }
         }
+        
+        func uploadImageViewModel(from viewModelProvider: ViewModelProvider.SessionViewModelProvider) -> UploadImageView.ViewModel {
+            viewModelProvider.uploadImageViewModel(currentFolderID: currentFolderID)
+        }
     }
 }
