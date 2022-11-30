@@ -1,35 +1,35 @@
 //
-//  FolderContentsProvider.swift
+//  ImageDataProvider.swift
 //  Core
 //
-//  Created by Dorian on 16/11/2022.
+//  Created by Dorian on 30/11/2022.
 //
 
 import Foundation
 import Combine
 import Networking
 
-public class FolderContentsProvider {
+public class ImageDataProvider {
     private let token: String
     
     public init(token: String) {
         self.token = token
     }
     
-    public func fetchFolderContents(folderID: Inode.ID) -> AnyPublisher<[Inode], Error> {
-        let publisher = PassthroughSubject<[Inode], Error>()
+    public func fetchImageData(imageID: File.ID) -> AnyPublisher<Data, Error> {
+        let publisher = PassthroughSubject<Data, Error>()
         
         BeFolderAPI
             .Items
-            .folderContents(folderID: folderID, token: token)
+            .imageData(imageID: imageID, token: token)
             .perform { result in
                 switch result {
                 case let .failure(error):
                     print(error)
                     publisher.send(completion: .failure(.networkError))
                     
-                case let .success(inodes):
-                    publisher.send(inodes)
+                case let .success(data):
+                    publisher.send(data)
                 }
             }
         

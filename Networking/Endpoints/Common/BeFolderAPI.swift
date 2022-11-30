@@ -35,13 +35,17 @@ public class BeFolderAPI {
 }
 
 public extension BeFolderAPI {
-    func user(token: String) -> BeFolderEndpoint<Networking.User> {
+    func user(token: String) -> User {
         User(token: token)
     }
     
     enum Items {
-        public static func folderContents(folderID: Inode.ID, token: String) -> BeFolderEndpoint<[Inode]> {
-            Item<[Inode]>.FolderContents(id: folderID, token: token)
+        public static func folderContents(folderID: Inode.ID, token: String) -> Item.FolderContents {
+            .init(id: folderID, token: token)
+        }
+        
+        public static func imageData(imageID: File.ID, token: String) -> Item.ImageData {
+            .init(id: imageID, token: token)
         }
     }
 }

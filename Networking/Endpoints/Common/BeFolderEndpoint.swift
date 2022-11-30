@@ -51,10 +51,14 @@ public class BeFolderEndpoint<Response: Decodable>: BeFolderAPI, NetswiftRequest
     }
     
     public func deserialise(_ incomingData: Data) -> NetswiftResult<Response> {
+        Self.defaultDeserialise(incomingData: incomingData)
+    }
+    
+    public static func defaultDeserialise<T: Decodable>(type: T.Type = Response.self, incomingData: Data) -> NetswiftResult<T> {
         do {
             let decoder = JSONDecoder()
             decoder.dateDecodingStrategy = .iso8601
-            let decodedResponse = try decoder.decode(Response.self, from: incomingData)
+            let decodedResponse = try decoder.decode(T.self, from: incomingData)
             return .success(decodedResponse)
             
         } catch let error as DecodingError {

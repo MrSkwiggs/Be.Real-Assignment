@@ -8,8 +8,7 @@
 import Foundation
 
 public extension BeFolderAPI {
-    class Item<Response: Decodable>: BeFolderEndpoint<Response> {
-        
-        public override var path: String? { "/items" }
+    enum Item {
+        public static var path: String? { "/items" }
     }
 }

@@ -50,6 +50,10 @@ public class Inode: Identifiable, Codable, Equatable {
         self.modificationDate = date
     }
     
+    public func asFile() -> File? {
+        return self as? File
+    }
+    
     public static func == (lhs: Inode, rhs: Inode) -> Bool {
         lhs.equals(rhs)
     }
