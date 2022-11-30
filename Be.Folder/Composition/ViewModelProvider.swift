@@ -33,14 +33,20 @@ extension ViewModelProvider {
     class SessionViewModelProvider: ObservableObject {
         private let session: Session
         private let root: Composition
+        private let folderContentsProvider: FolderContentsProvider
         
         init(session: Session, root: Composition) {
             self.session = session
             self.root = root
+            self.folderContentsProvider = .init(token: session.token)
         }
         
-        var folderContentsViewModel: FolderView.ViewModel {
-            .init(session: session)
+        var rootFolderViewModel: RootFolderView.ViewModel {
+            .init(folderID: session.user.rootFolder.id, folderContentsProvider: folderContentsProvider)
+        }
+        
+        func folderContentsViewModel(folderID: String) -> RootFolderView.ViewModel {
+            .init(folderID: folderID, folderContentsProvider: folderContentsProvider)
         }
     }
 }

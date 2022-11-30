@@ -10,25 +10,28 @@ import Combine
 import Networking
 
 public class FolderContentsProvider {
-    private let contentsSubject: PassthroughSubject<[String], Never> = .init()
+    private let contentsSubject: PassthroughSubject<[Inode], Never> = .init()
+    private let token: String
     
-    public lazy var contentsPublisher: AnyPublisher<[String], Never> = contentsSubject.eraseToAnyPublisher()
+    public lazy var contentsPublisher: AnyPublisher<[Inode], Never> = contentsSubject.eraseToAnyPublisher()
     
-    public init() {}
+    public init(token: String) {
+        self.token = token
+    }
     
-    public func fetchContents(for session: Session) -> AnyPublisher<[String], Never> {
-        let publisher = PassthroughSubject<[String], Never>()
+    public func fetchFolderContents(folderID: String) -> AnyPublisher<[Inode], Never> {
+        let publisher = PassthroughSubject<[Inode], Never>()
         
         BeFolderAPI
             .Items
-            .folderContents(folderID: session.user.rootFolder.id, token: session.token)
+            .folderContents(folderID: folderID, token: token)
             .perform { result in
                 switch result {
                 case let .failure(error):
-                    publisher.send(["Something went wrong: \(error)"])
+                    publisher.send([])
                     
                 case let .success(inodes):
-                    publisher.send(inodes.map(\.name))
+                    publisher.send(inodes)
                 }
             }
         

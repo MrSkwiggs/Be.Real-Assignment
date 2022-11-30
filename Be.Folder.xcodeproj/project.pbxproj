@@ -50,7 +50,7 @@
 		E7BE08D02925963C0097ED64 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE08CF2925963C0097ED64 /* Mock.swift */; };
 		E7BE08D229259A590097ED64 /* BeFolderAPI+Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE08D129259A590097ED64 /* BeFolderAPI+Item.swift */; };
 		E7BE08D529259DA30097ED64 /* BeFolderAPI.Item.FolderContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE08D429259DA30097ED64 /* BeFolderAPI.Item.FolderContents.swift */; };
-		E7BE08DA29259F220097ED64 /* FolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE08D929259F220097ED64 /* FolderView.swift */; };
+		E7BE08DA29259F220097ED64 /* RootFolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE08D929259F220097ED64 /* RootFolderView.swift */; };
 		E7BE08DC29259F4F0097ED64 /* FolderView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE08DB29259F4F0097ED64 /* FolderView+ViewModel.swift */; };
 		E7BE08DF29259FB70097ED64 /* FolderContentsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE08DE29259FB70097ED64 /* FolderContentsProvider.swift */; };
 /* End PBXBuildFile section */
@@ -183,7 +183,7 @@
 		E7BE08CF2925963C0097ED64 /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
 		E7BE08D129259A590097ED64 /* BeFolderAPI+Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BeFolderAPI+Item.swift"; sourceTree = "<group>"; };
 		E7BE08D429259DA30097ED64 /* BeFolderAPI.Item.FolderContents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeFolderAPI.Item.FolderContents.swift; sourceTree = "<group>"; };
-		E7BE08D929259F220097ED64 /* FolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderView.swift; sourceTree = "<group>"; };
+		E7BE08D929259F220097ED64 /* RootFolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootFolderView.swift; sourceTree = "<group>"; };
 		E7BE08DB29259F4F0097ED64 /* FolderView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FolderView+ViewModel.swift"; sourceTree = "<group>"; };
 		E7BE08DE29259FB70097ED64 /* FolderContentsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderContentsProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -492,7 +492,7 @@
 		E7BE08D629259EF60097ED64 /* Folder */ = {
 			isa = PBXGroup;
 			children = (
-				E7BE08D929259F220097ED64 /* FolderView.swift */,
+				E7BE08D929259F220097ED64 /* RootFolderView.swift */,
 				E7BE08DB29259F4F0097ED64 /* FolderView+ViewModel.swift */,
 			);
 			path = Folder;
@@ -789,7 +789,7 @@
 			files = (
 				E7BE0849292542280097ED64 /* AppDelegate.swift in Sources */,
 				E7BE08C2292583430097ED64 /* RootView+ViewModel.swift in Sources */,
-				E7BE08DA29259F220097ED64 /* FolderView.swift in Sources */,
+				E7BE08DA29259F220097ED64 /* RootFolderView.swift in Sources */,
 				E7BE089A292550230097ED64 /* LoginView+ViewModel.swift in Sources */,
 				E7BE08BD29257C540097ED64 /* ViewModelProvider.swift in Sources */,
 				E7BE08472925420C0097ED64 /* SceneDelegate.swift in Sources */,

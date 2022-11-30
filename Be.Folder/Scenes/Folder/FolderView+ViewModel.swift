@@ -1,5 +1,5 @@
 //
-//  FolderView+ViewModel.swift
+//  RootFolderView+ViewModel.swift
 //  Be.Folder
 //
 //  Created by Dorian on 16/11/2022.
@@ -9,23 +9,27 @@ import Foundation
 import Combine
 import Core
 
-extension FolderView {
+extension RootFolderView {
     class ViewModel: ObservableObject {
         
-        let session: Session
+        private let currentFolderID: String
+        private let folderContentsProvider: FolderContentsProvider
         
         @Published
-        var contents: [String] = []
+        var contents: [String: String] = [:]
         
         private var fetch: AnyCancellable?
         
-        init(session: Session) {
-            self.session = session
+        init(folderID: String, folderContentsProvider: FolderContentsProvider) {
+            self.currentFolderID = folderID
+            self.folderContentsProvider = folderContentsProvider
             
-            fetch = FolderContentsProvider()
-                .fetchContents(for: session)
+            fetch = folderContentsProvider
+                .fetchFolderContents(folderID: currentFolderID)
                 .sink { contents in
-                    self.contents = contents
+                    self.contents = contents.reduce(into: [String: String](), { partialResult, inode in
+                        partialResult[inode.id] = inode.name
+                    })
                 }
         }
     }

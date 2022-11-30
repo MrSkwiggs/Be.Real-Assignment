@@ -27,7 +27,27 @@ public class Inode: Identifiable, Codable, Equatable {
         self.id = try container.decode(Inode.ID.self, forKey: .id)
         self.parentID = try container.decodeIfPresent(Inode.ID.self, forKey: .parentID)
         self.name = try container.decode(String.self, forKey: .name)
-        self.modificationDate = try container.decode(Date.self, forKey: .modificationDate)
+        let date: Date
+        do {
+            date = try container.decode(Date.self, forKey: .modificationDate)
+        } catch {
+            // This is needed for inodes that store their modification date as an ISO-8601
+            // with milliseconds (which is not handled by the native Decoder implementation)
+            // cf. https://stackoverflow.com/a/46538423/3929910
+            let formatter = DateFormatter()
+            formatter.calendar = Calendar(identifier: .iso8601)
+            formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSXXXXX"
+            
+            let dateString = try container.decode(String.self, forKey: .modificationDate)
+            
+            if let formatterDate = formatter.date(from: dateString) {
+                date = formatterDate
+            } else {
+                date = try container.decode(Date.self, forKey: .modificationDate) // will fail but propagates the initial error back up the call chain
+            }
+        }
+        
+        self.modificationDate = date
     }
     
     public static func == (lhs: Inode, rhs: Inode) -> Bool {

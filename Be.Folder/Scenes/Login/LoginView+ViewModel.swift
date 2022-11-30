@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 import Core
+import UIKit
 
 extension LoginView {
     class ViewModel: ObservableObject {
@@ -18,7 +19,13 @@ extension LoginView {
         var username: String = ""
         
         @Published
+        var usernameFieldHasError: Bool = false
+        
+        @Published
         var password: String = ""
+        
+        @Published
+        var passwordFieldHasError: Bool = false
         
         @Published
         var canLogin: Bool = false
@@ -29,6 +36,8 @@ extension LoginView {
         @Published
         var error: String?
         
+        private var errorDispatchItem: DispatchWorkItem?
+        
         private var subscriptions: [AnyCancellable] = []
         private var loginAttempt: AnyCancellable?
         
@@ -36,9 +45,11 @@ extension LoginView {
             self.loginProvider = loginProvider
             
             $username
-                .zip($password)
+                .combineLatest($password)
                 .sink { (username, password) in
                     self.canLogin = !username.isEmpty && !password.isEmpty
+                    self.usernameFieldHasError = username.contains(/:/)
+                    self.passwordFieldHasError = password.contains(/:/)
                 }
                 .store(in: &subscriptions)
             
@@ -65,13 +76,13 @@ extension LoginView {
                     case .failure(let error):
                         switch error {
                         case .invalidCharacter:
-                            self.showError("Invalid character contained in username/password\nMake sure not to include any \":\" in either.")
+                            self.showError("Invalid character contained in username/password.\nMake sure not to include any \":\" in either.")
                         case .failedTokenEncoding:
                             self.showError("Unable to use these credentials.")
                         case .authFailed:
-                            self.showError("Invalid username and/or password\nMake sure you typed both correctly and try again")
-                        case .networkError:
-                            self.showError("Something went wrong while processing this request\n\(error.localizedDescription)")
+                            self.showError("Invalid username and/or password.\nMake sure you typed both correctly and try again.")
+                        case let .networkError(error):
+                            self.showError("Something went wrong while processing this request.\n\(error.localizedDescription).")
                         }
                     }
                     self.isBusyLoggingIn = false
@@ -81,10 +92,18 @@ extension LoginView {
         }
         
         private func showError(_ error: String) {
+            errorDispatchItem?.cancel()
+            
             self.error = error
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(10)) {
+            
+            let task = DispatchWorkItem {
                 self.error = nil
             }
+            
+            errorDispatchItem = task
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(10), execute: task)
+            
+            UIImpactFeedbackGenerator(style: .light).impactOccurred()
         }
     }
 }

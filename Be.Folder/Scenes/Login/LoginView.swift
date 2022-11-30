@@ -32,6 +32,11 @@ struct LoginView: View {
                         }
                         .autocorrectionDisabled()
                         .textInputAutocapitalization(.never)
+                        .searchSuggestions(.hidden, for: .menu)
+                        .listRowBackground(
+                            viewModel.usernameFieldHasError ? Color.red.opacity(0.4)
+                            : nil)
+                        .animation(.easeOut, value: viewModel.usernameFieldHasError)
                         
                         SecureField(text: $viewModel.password) {
                             Text("Password")
@@ -43,12 +48,6 @@ struct LoginView: View {
                 }
                 
                 Section {
-                    if let error = viewModel.error {
-                        Text(error)
-                            .font(.body)
-                            .bold()
-                            .foregroundColor(.red)
-                    }
                     Button {
                         viewModel.userDidTapLoginButton()
                     } label: {
@@ -60,6 +59,16 @@ struct LoginView: View {
                         }
                     }
                     .disabled(!viewModel.canLogin || viewModel.isBusyLoggingIn)
+                }
+                
+                if let error = viewModel.error {
+                    Section {
+                        Text(error)
+                            .font(.footnote)
+                        //                            .bold()
+                            .foregroundColor(.red)
+                    }
+                    .animation(.default, value: viewModel.error)
                 }
             }
         }
@@ -80,6 +89,6 @@ struct CheckBoxView: View {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView(viewModel: .init(loginProvider: Mock.LoginProvider()))
+        LoginView(viewModel: .init(loginProvider: Mock.LoginProvider(error: .authFailed)))
     }
 }
