@@ -8,8 +8,16 @@
 import Foundation
 
 public extension BeFolderAPI {
-    class User: BeFolderEndpoint<Networking.User> {
-        override public var path: String? {
+    class User: BeFolderAuthenticatedEndpoint {
+        public typealias Response = Networking.User
+        
+        public let token: String
+        
+        public init(token: String) {
+            self.token = token
+        }
+        
+        public var path: String? {
             return "/me"
         }
     }

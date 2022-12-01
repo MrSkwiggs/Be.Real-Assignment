@@ -65,6 +65,7 @@
 		E7F3D1BF2937D7190031B4A0 /* FolderView.CreateNewFolderView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F3D1BE2937D7190031B4A0 /* FolderView.CreateNewFolderView+ViewModel.swift */; };
 		E7F3D1C22937F77E0031B4A0 /* FolderView+UploadImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F3D1C12937F77E0031B4A0 /* FolderView+UploadImageView.swift */; };
 		E7F3D1C42937F7DA0031B4A0 /* FolderView.UploadImageView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F3D1C32937F7DA0031B4A0 /* FolderView.UploadImageView+ViewModel.swift */; };
+		E7F3D1C629380D4D0031B4A0 /* BeFolderAPI.Item.DeleteItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F3D1C529380D4D0031B4A0 /* BeFolderAPI.Item.DeleteItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -216,6 +217,7 @@
 		E7F3D1BE2937D7190031B4A0 /* FolderView.CreateNewFolderView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FolderView.CreateNewFolderView+ViewModel.swift"; sourceTree = "<group>"; };
 		E7F3D1C12937F77E0031B4A0 /* FolderView+UploadImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FolderView+UploadImageView.swift"; sourceTree = "<group>"; };
 		E7F3D1C32937F7DA0031B4A0 /* FolderView.UploadImageView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FolderView.UploadImageView+ViewModel.swift"; sourceTree = "<group>"; };
+		E7F3D1C529380D4D0031B4A0 /* BeFolderAPI.Item.DeleteItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeFolderAPI.Item.DeleteItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -521,6 +523,7 @@
 				E7BE08D129259A590097ED64 /* BeFolderAPI+Item.swift */,
 				E7BE08D429259DA30097ED64 /* BeFolderAPI.Item.FolderContents.swift */,
 				E7F3D1B92937B6D20031B4A0 /* BeFolderAPI.Item.CreateItem.swift */,
+				E7F3D1C529380D4D0031B4A0 /* BeFolderAPI.Item.DeleteItem.swift */,
 				E7F3D1B32937A52C0031B4A0 /* BeFolderAPI.Item+ImageData.swift */,
 			);
 			path = Items;
@@ -935,6 +938,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7BE08A629255E950097ED64 /* File.swift in Sources */,
+				E7F3D1C629380D4D0031B4A0 /* BeFolderAPI.Item.DeleteItem.swift in Sources */,
 				E7BE08D529259DA30097ED64 /* BeFolderAPI.Item.FolderContents.swift in Sources */,
 				E7BE08D02925963C0097ED64 /* Mock.swift in Sources */,
 				E7BE08B62925667A0097ED64 /* BeFolderEndpoint.swift in Sources */,

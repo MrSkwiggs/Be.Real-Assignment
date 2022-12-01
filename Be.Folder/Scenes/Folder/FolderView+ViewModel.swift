@@ -13,62 +13,82 @@ import Networking
 extension FolderView {
     class ViewModel: ObservableObject {
         
-        private let currentFolderID: String
+        private let currentFolder: Inode
         private let folderContentsProvider: FolderRepository
         
         @Published
-        var folders: [String: String] = [:]
+        var folders: [Inode] = []
         
         @Published
-        var images: [String: String] = [:]
+        var images: [File] = []
         
         @Published
         var hasError: Bool = false
         
-        private var fetch: AnyCancellable?
+        let breadcrumbs: String
         
-        init(folderID: String, folderContentsProvider: FolderRepository) {
-            self.currentFolderID = folderID
+        private var fetch: AnyCancellable?
+        private var delete: AnyCancellable?
+        
+        init(folder: Inode, folderContentsProvider: FolderRepository, breadcrumbs: String? = nil) {
+            self.currentFolder = folder
             self.folderContentsProvider = folderContentsProvider
-            
+            self.breadcrumbs = breadcrumbs.map { "\($0) / \(folder.name)" } ?? folder.name
             getFolderContents()
         }
         
         private func getFolderContents() {
             guard fetch == nil else { return }
             fetch = folderContentsProvider
-                .fetchFolderContents(folderID: currentFolderID)
+                .fetchFolderContents(folderID: currentFolder.id)
                 .sink(receiveCompletion: { error in
                     // error
                 }, receiveValue: { contents in
-                    var folders: [String: String] = [:]
-                    var images: [String: String] = [:]
+                    var folders: [Inode] = []
+                    var images: [File] = []
                     
                     contents.forEach { inode in
                         guard let file = inode.asFile() else {
-                            folders[inode.id] = inode.name
+                            folders.append(inode)
                             return
                         }
-                        images[file.id] = file.name
+                        images.append(file)
                     }
                     
-                    self.folders = folders
-                    self.images = images
+                    self.folders = folders.sorted { $0.name.lowercased() < $1.name.lowercased() }
+                    self.images = images.sorted { $0.name.lowercased() < $1.name.lowercased() }
                 })
         }
         
         func retry() {
+            hasError = false
             getFolderContents()
         }
         
         func createFolderViewModel(from viewModelProvider: ViewModelProvider.SessionViewModelProvider) -> CreateNewFolderView.ViewModel {
-            viewModelProvider.createFolderViewModel(currentFolderID: currentFolderID) { inode in
+            viewModelProvider.createFolderViewModel(currentFolderID: currentFolder.id) { inode in
                 self.getFolderContents()
             }
         }
         
         func uploadImageViewModel(from viewModelProvider: ViewModelProvider.SessionViewModelProvider) -> UploadImageView.ViewModel {
-            viewModelProvider.uploadImageViewModel(currentFolderID: currentFolderID)
+            viewModelProvider.uploadImageViewModel(currentFolderID: currentFolder.id)
+        }
+        
+        func deleteFolder(folderID: Inode.ID) {
+            delete = folderContentsProvider
+                .deleteFolder(folderID: folderID)
+                .sink { completion in
+                    switch completion {
+                    case .failure:
+                        self.hasError = true
+                    case .finished:
+                        self.hasError = false
+                    }
+                    
+                } receiveValue: {
+                    self.getFolderContents()
+                }
         }
     }
 }

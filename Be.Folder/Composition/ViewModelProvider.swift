@@ -45,11 +45,11 @@ extension ViewModelProvider {
         }
         
         var rootFolderViewModel: FolderView.ViewModel {
-            .init(folderID: session.user.rootFolder.id, folderContentsProvider: folderContentsProvider)
+            .init(folder: session.user.rootFolder, folderContentsProvider: folderContentsProvider)
         }
         
-        func folderContentsViewModel(folderID: String) -> FolderView.ViewModel {
-            .init(folderID: folderID, folderContentsProvider: folderContentsProvider)
+        func folderContentsViewModel(for folder: Inode, breadcrumbs: String) -> FolderView.ViewModel {
+            .init(folder: folder, folderContentsProvider: folderContentsProvider, breadcrumbs: breadcrumbs)
         }
         
         func imageDataViewModel(imageID: String) -> ImageView.ViewModel {

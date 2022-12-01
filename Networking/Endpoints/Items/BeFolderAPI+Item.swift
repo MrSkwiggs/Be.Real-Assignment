@@ -9,6 +9,6 @@ import Foundation
 
 public extension BeFolderAPI {
     enum Item {
-        public static var path: String? { "/items" }
+        public static var path: String { "/items" }
     }
 }

@@ -9,24 +9,27 @@ import Foundation
 import Netswift
 
 public extension BeFolderAPI.Item {
-    class CreateItem: BeFolderEndpoint<Inode> {
-        let currentFolderID: Inode.ID
-        let itemType: ItemType
+    
+    class Create: BeFolderAuthenticatedEndpoint {
+        public typealias Response = Inode
         
-        public init(currentFolderID: Inode.ID, itemType: ItemType, token: String) {
-            self.currentFolderID = currentFolderID
-            self.itemType = itemType
-            super.init(token: token)
-        }
+        public let currentFolderID: Inode.ID
+        public let itemType: ItemType
+        public let token: String
         
         public enum ItemType {
             case folder(name: String)
             case image(name: String, data: Data)
         }
         
-        public override var path: String? { "\(Item.path!)/\(currentFolderID)" }
-        public override var method: NetswiftHTTPMethod { .post }
-        public override var additionalHeaders: [RequestHeader] {
+        public init(_ itemType: ItemType, currentFolderID: Inode.ID, token: String) {
+            self.itemType = itemType
+            self.currentFolderID = currentFolderID
+            self.token = token
+        }
+        public var path: String? { "\(BeFolderAPI.Item.path)/\(currentFolderID)" }
+        public var method: NetswiftHTTPMethod { .post }
+        public var additionalHeaders: [RequestHeader] {
             switch itemType {
             case let .image(name, _):
                 return [
@@ -36,7 +39,7 @@ public extension BeFolderAPI.Item {
                 return []
             }
         }
-        public override var contentType: MimeType {
+        public var contentType: MimeType {
             switch itemType {
             case .folder:
                 return .json
@@ -44,9 +47,9 @@ public extension BeFolderAPI.Item {
                 return .custom(type: "application/octet-stream")
             }
         }
-        public override var bodyEncoder: NetswiftEncoder? { JSONEncoder() }
+        public var bodyEncoder: NetswiftEncoder? { JSONEncoder() }
         
-        public override func body(encodedBy encoder: NetswiftEncoder?) throws -> Data? {
+        public func body(encodedBy encoder: NetswiftEncoder?) throws -> Data? {
             switch itemType {
             case let .folder(name):
                 return try encoder?.encode(FolderNameBody(name: name))

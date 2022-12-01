@@ -8,29 +8,18 @@
 import Foundation
 import Netswift
 
-public class BeFolderEndpoint<Response: Decodable>: BeFolderAPI, NetswiftRequest, NetswiftRoute {
+public protocol BeFolderEndpoint: NetswiftRoute, NetswiftRequest, NetswiftRequestPerformable {}
+
+public protocol BeFolderAuthenticatedEndpoint: BeFolderEndpoint {
+    var token: String { get }
+}
+
+public extension BeFolderEndpoint {
+    var scheme: String { GenericScheme.http.rawValue }
+    var host: String? { "163.172.147.216" }
+    var port: String { "8080" }
     
-    let token: String
-    
-    public init(token: String) {
-        self.token = token
-        super.init()
-    }
-    
-    public var scheme: String { GenericScheme.http.rawValue }
-    public var host: String? { BeFolderAPI.domain }
-    public var port: String { "8080" }
-    public var path: String? { nil }
-    public var query: String? { nil }
-    public var method: NetswiftHTTPMethod { .get }
-    public var additionalHeaders: [RequestHeader] { [] }
-    public var contentType: MimeType { .json }
-    public var bodyEncoder: NetswiftEncoder? { nil }
-    public func body(encodedBy encoder: NetswiftEncoder?) throws -> Data? {
-        nil
-    }
-    
-    public var url: URL {
+    var url: URL {
         let scheme = self.scheme
         let host = (self.host ?? "").addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
         let path = (self.path ?? "").addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!
@@ -40,8 +29,30 @@ public class BeFolderEndpoint<Response: Decodable>: BeFolderAPI, NetswiftRequest
         fragment = fragment.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed)!
         return URL(string: "\(scheme)\(host):\(port)\(path)\(query)\(fragment)")!
     }
+}
+
+public extension BeFolderEndpoint where Response: Decodable {
+    func deserialise(_ incomingData: Data) -> NetswiftResult<Response> {
+        Self.defaultDeserialise(incomingData: incomingData)
+    }
     
-    public func serialise() -> NetswiftResult<URLRequest> {
+    static func defaultDeserialise<T: Decodable>(type: T.Type = Response.self, incomingData: Data) -> NetswiftResult<T> {
+        do {
+            let decoder = JSONDecoder()
+            decoder.dateDecodingStrategy = .iso8601
+            let decodedResponse = try decoder.decode(T.self, from: incomingData)
+            return .success(decodedResponse)
+            
+        } catch let error as DecodingError {
+            return .failure(.init(category: .responseDecodingError(error: error), payload: incomingData))
+        } catch {
+            return .failure(.init(category: .unexpectedResponseError, payload: incomingData))
+        }
+    }
+}
+
+public extension BeFolderAuthenticatedEndpoint {
+    func serialise() -> NetswiftResult<URLRequest> {
         var request = URLRequest(url: self.url)
         
         request.setHTTPMethod(self.method)
@@ -63,37 +74,5 @@ public class BeFolderEndpoint<Response: Decodable>: BeFolderAPI, NetswiftRequest
         }
         
         return .success(request)
-    }
-    
-    public func deserialise(_ incomingData: Data) -> NetswiftResult<Response> {
-        Self.defaultDeserialise(incomingData: incomingData)
-    }
-    
-    public static func defaultDeserialise<T: Decodable>(type: T.Type = Response.self, incomingData: Data) -> NetswiftResult<T> {
-        do {
-            let decoder = JSONDecoder()
-            decoder.dateDecodingStrategy = .iso8601
-            let decodedResponse = try decoder.decode(T.self, from: incomingData)
-            return .success(decodedResponse)
-            
-        } catch let error as DecodingError {
-            return .failure(.init(category: .responseDecodingError(error: error), payload: incomingData))
-        } catch {
-            return .failure(.init(category: .unexpectedResponseError, payload: incomingData))
-        }
-    }
-}
-
-extension BeFolderEndpoint: NetswiftRequestPerformable {
-    @discardableResult public func perform(_ handler: @escaping NetswiftHandler<Response>) -> NetswiftTask? {
-        return perform(self, handler)
-    }
-    
-    @discardableResult public func perform(deadline: DispatchTime, _ handler: @escaping NetswiftHandler<Response>) -> NetswiftTask? {
-        return perform(self, deadline: deadline, handler)
-    }
-    
-    public func perform() async -> NetswiftResult<Response> {
-        return await perform(self)
     }
 }

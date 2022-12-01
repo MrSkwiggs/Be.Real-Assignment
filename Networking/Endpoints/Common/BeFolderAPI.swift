@@ -8,17 +8,21 @@
 import Foundation
 import Netswift
 
-public class BeFolderAPI {
-    static let domain: String = "163.172.147.216"
+public struct BeFolderAPI {
     
-    internal let performer: NetswiftNetworkPerformer
+    fileprivate static var shared: BeFolderAPI = .init()
     
-    public init(performer: NetswiftNetworkPerformer = NetswiftPerformer()) {
+    public static func configure(using sharedInstance: BeFolderAPI) {
+        shared = sharedInstance
+    }
+    
+    private let performer: NetswiftNetworkPerformer
+    
+    private init(performer: NetswiftNetworkPerformer = NetswiftPerformer()) {
         self.performer = performer
     }
     
-    internal func perform<Response: Decodable,
-                            Endpoint: BeFolderEndpoint<Response>>(_ endpoint: Endpoint,
+    fileprivate func perform<Endpoint: BeFolderEndpoint>(_ endpoint: Endpoint,
                                                        deadline: DispatchTime? = nil,
                                                        _ handler: @escaping NetswiftHandler<Endpoint.Response>) -> NetswiftTask? {
         return performer.perform(endpoint, deadline: deadline) { result in
@@ -28,8 +32,21 @@ public class BeFolderAPI {
         }
     }
     
-    internal func perform<Response: Decodable,
-                          Endpoint: BeFolderEndpoint<Response>>(_ endpoint: Endpoint) async -> NetswiftResult<Endpoint.Response> {
+    fileprivate func perform<Endpoint: BeFolderEndpoint>(_ endpoint: Endpoint) async -> NetswiftResult<Endpoint.Response> {
         return await performer.perform(endpoint)
+    }
+}
+
+public extension NetswiftRequestPerformable where Self: BeFolderEndpoint {
+    @discardableResult func perform(_ handler: @escaping NetswiftHandler<Self.Response>) -> NetswiftTask? {
+        return BeFolderAPI.shared.perform(self, handler)
+    }
+    
+    @discardableResult func perform(deadline: DispatchTime, _ handler: @escaping NetswiftHandler<Self.Response>) -> NetswiftTask? {
+        return BeFolderAPI.shared.perform(self, deadline: deadline, handler)
+    }
+    
+    func perform() async -> NetswiftResult<Self.Response> {
+        return await BeFolderAPI.shared.perform(self)
     }
 }

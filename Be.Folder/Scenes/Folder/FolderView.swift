@@ -37,12 +37,17 @@ struct FolderView: View {
             }
             if !viewModel.folders.isEmpty {
                 Section("Folders") {
-                    ForEach(Array(viewModel.folders.keys), id: \.self) { key in
+                    ForEach(viewModel.folders) { folder in
                         NavigationLink {
-                            FolderView(viewModel: viewModelProvider.folderContentsViewModel(folderID: key))
+                            FolderView(viewModel: viewModelProvider.folderContentsViewModel(for: folder, breadcrumbs: viewModel.breadcrumbs))
                         } label: {
-                            Text(viewModel.folders[key] ?? key)
+                            Text(folder.name)
                         }
+                    }
+                    .onDelete { indices in
+                        guard let index = indices.first,
+                              viewModel.folders.indices.contains(index) else { return }
+                        viewModel.deleteFolder(folderID: viewModel.folders[index].id)
                     }
                 }
             } else {
@@ -51,17 +56,21 @@ struct FolderView: View {
             
             if !viewModel.images.isEmpty {
                 Section("Images") {
-                    ForEach(Array(viewModel.images.keys), id: \.self) { key in
+                    ForEach(viewModel.images) { image in
                         NavigationLink {
-                            ImageView(viewModel: viewModelProvider.imageDataViewModel(imageID: key))
+                            ImageView(viewModel: viewModelProvider.imageDataViewModel(imageID: image.id))
                         } label: {
-                            Text(viewModel.images[key] ?? key)
+                            Text(image.name)
                         }
                     }
                 }
             }
         }
+        .navigationBarTitleDisplayMode(.inline)
         .toolbar(content: {
+            ToolbarItem(placement: .principal) {
+                Text(viewModel.breadcrumbs).truncationMode(.head)
+            }
             ToolbarItem {
                 Button {
                     showFolderCreationSheet = true
@@ -74,7 +83,7 @@ struct FolderView: View {
                 Button {
                     showUploadFileSheet = true
                 } label: {
-                    Image(systemName: "icloud.and.arrow.up")
+                    Image(systemName: "doc.badge.plus")
                 }
             }
         })

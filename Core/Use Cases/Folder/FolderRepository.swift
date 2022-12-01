@@ -41,7 +41,7 @@ public class FolderRepository {
         
         BeFolderAPI
             .Item
-            .CreateItem(currentFolderID: parentFolderID, itemType: .folder(name: name), token: token)
+            .Create(.folder(name: name), currentFolderID: parentFolderID, token: token)
             .perform { result in
                 switch result {
                 case let .failure(error):
@@ -63,16 +63,36 @@ public class FolderRepository {
         
         BeFolderAPI
             .Item
-            .CreateItem(currentFolderID: parentFolderID, itemType: .image(name: name, data: data), token: token)
+            .Create(.image(name: name, data: data), currentFolderID: parentFolderID, token: token)
             .perform { result in
                 switch result {
                 case let .failure(error):
                     print(error)
                     publisher.send(completion: .failure(.networkError))
-                    publisher.send(completion: .finished)
                     
                 case let .success(inode):
                     publisher.send(inode)
+                    publisher.send(completion: .finished)
+                }
+            }
+        
+        return publisher.eraseToAnyPublisher()
+    }
+    
+    public func deleteFolder(folderID: Inode.ID) -> AnyPublisher<Void, Error> {
+        let publisher = PassthroughSubject<Void, Error>()
+        
+        BeFolderAPI
+            .Item
+            .DeleteItem(itemID: folderID, token: token)
+            .perform { result in
+                switch result {
+                case let .failure(error):
+                    print(error)
+                    publisher.send(completion: .failure(.networkError))
+                    
+                case .success:
+                    publisher.send()
                     publisher.send(completion: .finished)
                 }
             }

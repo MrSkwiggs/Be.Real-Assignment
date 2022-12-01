@@ -9,17 +9,20 @@ import Foundation
 import Netswift
 
 public extension BeFolderAPI.Item {
-    class ImageData: BeFolderEndpoint<Data> {
+    class ImageData: BeFolderAuthenticatedEndpoint {
+        public typealias Response = Data
+        
+        public let id: File.ID
+        public let token: String
+        
         public init(id: Inode.ID, token: String) {
             self.id = id
-            super.init(token: token)
+            self.token = token
         }
         
-        let id: File.ID
+        public var path: String? { "\(BeFolderAPI.Item.path)/\(id)/data" }
         
-        public override var path: String? { "\(Item.path!)/\(id)/data" }
-        
-        public override func deserialise(_ incomingData: Data) -> NetswiftResult<Data> {
+        public func deserialise(_ incomingData: Data) -> NetswiftResult<Data> {
             .success(incomingData)
         }
     }

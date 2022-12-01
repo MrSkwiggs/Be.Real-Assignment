@@ -9,18 +9,20 @@ import Foundation
 import Netswift
 
 public extension BeFolderAPI.Item {
-    class FolderContents: BeFolderEndpoint<[Inode]> {
+    class FolderContents: BeFolderAuthenticatedEndpoint {
+        public typealias Response = [Inode]
+        
+        public let id: Inode.ID
+        public let token: String
         
         public init(id: Inode.ID, token: String) {
             self.id = id
-            super.init(token: token)
+            self.token = token
         }
         
-        let id: Inode.ID
+        public var path: String? { "\(BeFolderAPI.Item.path)/\(id)" }
         
-        public override var path: String? { "\(Item.path!)/\(id)" }
-        
-        public override func deserialise(_ incomingData: Data) -> NetswiftResult<Response> {
+        public func deserialise(_ incomingData: Data) -> NetswiftResult<Response> {
             Self.defaultDeserialise(type: Container.self, incomingData: incomingData)
                 .map(\.inodes)
         }
