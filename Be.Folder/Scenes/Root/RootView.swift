@@ -20,10 +20,16 @@ struct RootView: View {
         if let session = viewModel.session {
             NavigationView {
                 VStack {
-                    Text("Logged in")
-                    Text("User: \(session.user.firstName) \(session.user.lastName)")
-                    Text("RootFolder: \(session.user.rootFolder.name)")
                     FolderView(viewModel: viewModelProvider.sessionViewModelProvider(session: session).rootFolderViewModel)
+                        .toolbar {
+                            ToolbarItem(placement: .navigationBarLeading) {
+                                NavigationLink(destination: {
+                                    UserView(user: session.user)
+                                }, label: {
+                                    Image(systemName: "person.crop.circle")
+                                })
+                            }
+                        }
                 }
             }
             .environmentObject(viewModelProvider.sessionViewModelProvider(session: session))
