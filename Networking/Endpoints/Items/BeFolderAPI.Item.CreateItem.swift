@@ -27,8 +27,11 @@ public extension BeFolderAPI.Item {
             self.currentFolderID = currentFolderID
             self.token = token
         }
+        
         public var path: String? { "\(BeFolderAPI.Item.path)/\(currentFolderID)" }
+        
         public var method: NetswiftHTTPMethod { .post }
+        
         public var additionalHeaders: [RequestHeader] {
             switch itemType {
             case let .image(name, _):
@@ -39,6 +42,7 @@ public extension BeFolderAPI.Item {
                 return []
             }
         }
+        
         public var contentType: MimeType {
             switch itemType {
             case .folder:
@@ -47,6 +51,7 @@ public extension BeFolderAPI.Item {
                 return .custom(type: "application/octet-stream")
             }
         }
+        
         public var bodyEncoder: NetswiftEncoder? { JSONEncoder() }
         
         public func body(encodedBy encoder: NetswiftEncoder?) throws -> Data? {

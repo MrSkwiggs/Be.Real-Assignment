@@ -19,17 +19,17 @@ public class LoginProvider: LoginContract {
         let publisher = PassthroughSubject<Bool, Login.Error>()
         
         guard username.contains(/:/) == false && password.contains(/:/) == false else {
-            publisher.send(.failure(.invalidCharacter))
+            publisher.complete(with: .failure(.invalidCharacter))
             return publisher.eraseToAnyPublisher()
         }
         
         guard let token = "\(username):\(password)".data(using: .utf8)?.base64EncodedString() else {
-            publisher.send(.failure(.failedTokenEncoding))
+            publisher.complete(with: .failure(.failedTokenEncoding))
             return publisher.eraseToAnyPublisher()
         }
         BeFolderAPI.User(token: token).perform { [weak self] result in
-            publisher.send(
-                result
+            publisher.complete(
+                with: result
                     .mapError({ error in
                         guard error.category.httpStatusCode == 401 else {
                             return .networkError(error: error)
@@ -44,16 +44,5 @@ public class LoginProvider: LoginContract {
         }
         
         return publisher.eraseToAnyPublisher()
-    }
-}
-
-extension Subject {
-    func send(_ result: Result<Output, Failure>) {
-        switch result {
-        case .success(let success):
-            send(success)
-        case .failure(let failure):
-            send(completion: .failure(failure))
-        }
     }
 }

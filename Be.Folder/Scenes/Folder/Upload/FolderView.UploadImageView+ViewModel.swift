@@ -38,6 +38,7 @@ extension FolderView.UploadImageView {
                 .sink { name, imageData in
                     self.canUpload = !name.isEmpty && imageData != nil
                 }
+                .store(in: &subscriptions)
         }
         
         func userDidPick(photo: PhotosPickerItem) {
@@ -53,7 +54,7 @@ extension FolderView.UploadImageView {
             }
         }
         
-        func uploadPhoto() {
+        func uploadPhoto(then callback: @escaping () -> Void) {
             guard let selectedImage, let data = selectedImage.jpegData(compressionQuality: 0.2) else { return }
             folderRepository
                 .uploadFile(name: name + ".jpg", data: data, parentFolderID: currentFolderID)
@@ -63,6 +64,7 @@ extension FolderView.UploadImageView {
                     }
                 } receiveValue: { file in
                     print("upload succeeded")
+                    callback()
                 }
                 .store(in: &subscriptions)
         }

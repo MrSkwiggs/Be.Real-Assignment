@@ -32,7 +32,7 @@ extension FolderView.CreateNewFolderView {
         private let currentFolderID: String
         private var subscriptions: [AnyCancellable] = []
         
-        func createFolder() {
+        func createFolder(then callback: @escaping () -> Void) {
             guard canCreateFolder else { return }
             isLoading = true
             
@@ -48,6 +48,7 @@ extension FolderView.CreateNewFolderView {
                         self.error = "Something went wrong. Please try again"
                     }
                 } receiveValue: { inode in
+                    callback()
                     self.onFolderCreated(inode)
                 }
                 .store(in: &subscriptions)

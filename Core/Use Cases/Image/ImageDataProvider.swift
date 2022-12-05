@@ -29,7 +29,7 @@ public class ImageDataProvider {
                     publisher.send(completion: .failure(.networkError))
                     
                 case let .success(data):
-                    publisher.send(data)
+                    publisher.complete(with: data)
                 }
             }
         

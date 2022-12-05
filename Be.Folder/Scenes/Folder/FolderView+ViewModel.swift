@@ -41,8 +41,9 @@ extension FolderView {
             guard fetch == nil else { return }
             fetch = folderContentsProvider
                 .fetchFolderContents(folderID: currentFolder.id)
-                .sink(receiveCompletion: { error in
-                    // error
+                .sink(receiveCompletion: { completion in
+                    self.handleCompletion(completion)
+                    self.fetch = nil
                 }, receiveValue: { contents in
                     var folders: [Inode] = []
                     var images: [File] = []
@@ -76,19 +77,25 @@ extension FolderView {
         }
         
         func deleteFolder(folderID: Inode.ID) {
+            guard delete == nil else { return }
             delete = folderContentsProvider
                 .deleteFolder(folderID: folderID)
                 .sink { completion in
-                    switch completion {
-                    case .failure:
-                        self.hasError = true
-                    case .finished:
-                        self.hasError = false
-                    }
+                    self.handleCompletion(completion)
+                    self.delete = nil
                     
                 } receiveValue: {
                     self.getFolderContents()
                 }
+        }
+        
+        private func handleCompletion(_ completion: Subscribers.Completion<Error>) {
+            switch completion {
+            case .finished:
+                hasError = false
+            case .failure:
+                hasError = true
+            }
         }
     }
 }

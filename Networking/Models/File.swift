@@ -30,7 +30,9 @@ public class File: Inode {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.size = try container.decode(Int.self, forKey: .size)
-        self.contentType = try container.decode(ContentType.self, forKey: .contentType)
+        // There are many contents possible, more could be added over time.
+        // We should not fail decoding just because of this
+        self.contentType = (try? container.decode(ContentType.self, forKey: .contentType)) ?? .unknow
         try super.init(from: decoder)
     }
     
@@ -48,5 +50,8 @@ public extension File {
         case jpg = "image/jpeg"
         case png = "image/png"
         case octetStream = "application/octet-stream"
+        case text = "text/plain"
+        
+        case unknow = "unknown"
     }
 }

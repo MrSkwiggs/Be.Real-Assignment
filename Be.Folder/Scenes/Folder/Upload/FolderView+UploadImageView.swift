@@ -13,6 +13,9 @@ extension FolderView {
         @StateObject
         var viewModel: ViewModel
         
+        @Environment(\.dismiss)
+        var dismiss
+        
         var body: some View {
             Form {
                 Section {
@@ -59,7 +62,9 @@ extension FolderView {
                 
                 Section {
                     Button {
-                        viewModel.uploadPhoto()
+                        viewModel.uploadPhoto {
+                            self.dismiss()
+                        }
                     } label: {
                         Text("Upload")
                     }

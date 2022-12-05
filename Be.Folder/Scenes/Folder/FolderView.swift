@@ -67,6 +67,9 @@ struct FolderView: View {
             }
         }
         .navigationBarTitleDisplayMode(.inline)
+        .refreshable {
+            viewModel.retry()
+        }
         .toolbar(content: {
             ToolbarItem(placement: .principal) {
                 Text(viewModel.breadcrumbs).truncationMode(.head)

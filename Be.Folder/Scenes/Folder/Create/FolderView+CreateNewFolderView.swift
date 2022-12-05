@@ -13,6 +13,9 @@ extension FolderView {
         @StateObject
         var viewModel: ViewModel
         
+        @Environment(\.dismiss)
+        var dismiss
+        
         var body: some View {
             Form {
                 Section("Create New Folder") {
@@ -26,7 +29,9 @@ extension FolderView {
                 
                 Section {
                     Button {
-                        viewModel.createFolder()
+                        viewModel.createFolder {
+                            self.dismiss()
+                        }
                     } label: {
                         if viewModel.isLoading {
                             ProgressView()
