@@ -47,7 +47,7 @@ struct FolderView: View {
                     .onDelete { indices in
                         guard let index = indices.first,
                               viewModel.folders.indices.contains(index) else { return }
-                        viewModel.deleteFolder(folderID: viewModel.folders[index].id)
+                        viewModel.deleteItem(itemID: viewModel.folders[index].id)
                     }
                 }
             } else {
@@ -62,6 +62,11 @@ struct FolderView: View {
                         } label: {
                             Text(image.name)
                         }
+                    }
+                    .onDelete { indices in
+                        guard let index = indices.first,
+                              viewModel.images.indices.contains(index) else { return }
+                        viewModel.deleteItem(itemID: viewModel.images[index].id)
                     }
                 }
             }
@@ -96,6 +101,7 @@ struct FolderView: View {
         }
         .sheet(isPresented: $showUploadFileSheet) {
             UploadImageView(viewModel: viewModel.uploadImageViewModel(from: viewModelProvider))
+                .presentationDetents([.medium])
         }
     }
 }

@@ -10,6 +10,7 @@ import PhotosUI
 
 extension FolderView {
     struct UploadImageView: View {
+        
         @StateObject
         var viewModel: ViewModel
         
@@ -18,12 +19,12 @@ extension FolderView {
         
         var body: some View {
             Form {
-                Section {
+                Section("Upload Image") {
                     if let uiImage = viewModel.selectedImage {
                         Image(uiImage: uiImage)
                             .resizable()
-                            .scaledToFit()
-                            .frame(width: 250, height: 250)
+                            .scaledToFill()
+                            .frame(height: 250)
                     } else {
                         HStack(alignment: .center) {
                             Spacer()
@@ -66,9 +67,20 @@ extension FolderView {
                             self.dismiss()
                         }
                     } label: {
-                        Text("Upload")
+                        if viewModel.isImageLoading {
+                            ProgressView()
+                                .progressViewStyle(.circular)
+                        } else {
+                            Text("Upload")
+                        }
                     }
-                    .disabled(viewModel.canUpload)
+//                    .disabled(viewModel.canUpload)
+                    
+                    if viewModel.hasError {
+                        Text("Something went wrong")
+                            .font(.footnote)
+                            .foregroundColor(.red)
+                    }
                 }
             }
         }

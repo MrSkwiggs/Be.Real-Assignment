@@ -77,12 +77,12 @@ public class FolderRepository {
         return publisher.eraseToAnyPublisher()
     }
     
-    public func deleteFolder(folderID: Inode.ID) -> AnyPublisher<Void, Error> {
+    public func deleteItem(itemID: Inode.ID) -> AnyPublisher<Void, Error> {
         let publisher = PassthroughSubject<Void, Error>()
         
         BeFolderAPI
             .Item
-            .DeleteItem(itemID: folderID, token: token)
+            .DeleteItem(itemID: itemID, token: token)
             .perform { result in
                 switch result {
                 case let .failure(error):

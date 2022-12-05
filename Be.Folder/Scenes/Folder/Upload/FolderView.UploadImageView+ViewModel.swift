@@ -25,6 +25,12 @@ extension FolderView.UploadImageView {
         @Published
         var canUpload: Bool = false
         
+        @Published
+        var isLoading: Bool = false
+        
+        @Published
+        var hasError: Bool = false
+        
         private let currentFolderID: String
         private let folderRepository: FolderRepository
         private var subscriptions: [AnyCancellable] = []
@@ -55,13 +61,17 @@ extension FolderView.UploadImageView {
         }
         
         func uploadPhoto(then callback: @escaping () -> Void) {
+            hasError = false
+            isLoading = true
             guard let selectedImage, let data = selectedImage.jpegData(compressionQuality: 0.2) else { return }
             folderRepository
                 .uploadFile(name: name + ".jpg", data: data, parentFolderID: currentFolderID)
                 .sink { completion in
                     if case let .failure(error) = completion {
                         print(error)
+                        self.hasError = true
                     }
+                    self.isLoading = false
                 } receiveValue: { file in
                     print("upload succeeded")
                     callback()

@@ -76,14 +76,13 @@ extension FolderView {
             viewModelProvider.uploadImageViewModel(currentFolderID: currentFolder.id)
         }
         
-        func deleteFolder(folderID: Inode.ID) {
+        func deleteItem(itemID: Inode.ID) {
             guard delete == nil else { return }
             delete = folderContentsProvider
-                .deleteFolder(folderID: folderID)
+                .deleteItem(itemID: itemID)
                 .sink { completion in
                     self.handleCompletion(completion)
                     self.delete = nil
-                    
                 } receiveValue: {
                     self.getFolderContents()
                 }
