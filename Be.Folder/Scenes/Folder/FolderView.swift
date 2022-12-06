@@ -35,8 +35,8 @@ struct FolderView: View {
                     }
                 }
             }
-            if !viewModel.folders.isEmpty {
-                Section("Folders") {
+            Section("Folders") {
+                if !viewModel.folders.isEmpty {
                     ForEach(viewModel.folders) { folder in
                         NavigationLink {
                             FolderView(viewModel: viewModelProvider.folderContentsViewModel(for: folder, breadcrumbs: viewModel.breadcrumbs))
@@ -49,25 +49,27 @@ struct FolderView: View {
                               viewModel.folders.indices.contains(index) else { return }
                         viewModel.deleteItem(itemID: viewModel.folders[index].id)
                     }
+                } else {
+                    Text("No folders here...")
                 }
-            } else {
-                Text("No folders here...")
             }
             
-            if !viewModel.images.isEmpty {
-                Section("Images") {
-                    ForEach(viewModel.images) { image in
+            Section("Files") {
+                if !viewModel.files.isEmpty {
+                    ForEach(viewModel.files) { file in
                         NavigationLink {
-                            ImageView(viewModel: viewModelProvider.imageDataViewModel(imageID: image.id))
+                            FileView(viewModel: viewModelProvider.fileDataViewModel(file: file))
                         } label: {
-                            Text(image.name)
+                            Text(file.name)
                         }
                     }
                     .onDelete { indices in
                         guard let index = indices.first,
-                              viewModel.images.indices.contains(index) else { return }
-                        viewModel.deleteItem(itemID: viewModel.images[index].id)
+                              viewModel.files.indices.contains(index) else { return }
+                        viewModel.deleteItem(itemID: viewModel.files[index].id)
                     }
+                } else {
+                    Text("No files here...")
                 }
             }
         }

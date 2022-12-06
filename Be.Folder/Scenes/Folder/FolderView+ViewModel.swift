@@ -20,7 +20,7 @@ extension FolderView {
         var folders: [Inode] = []
         
         @Published
-        var images: [File] = []
+        var files: [File] = []
         
         @Published
         var hasError: Bool = false
@@ -46,18 +46,18 @@ extension FolderView {
                     self.fetch = nil
                 }, receiveValue: { contents in
                     var folders: [Inode] = []
-                    var images: [File] = []
+                    var files: [File] = []
                     
                     contents.forEach { inode in
                         guard let file = inode.asFile() else {
                             folders.append(inode)
                             return
                         }
-                        images.append(file)
+                        files.append(file)
                     }
                     
                     self.folders = folders.sorted { $0.name.lowercased() < $1.name.lowercased() }
-                    self.images = images.sorted { $0.name.lowercased() < $1.name.lowercased() }
+                    self.files = files.sorted { $0.name.lowercased() < $1.name.lowercased() }
                 })
         }
         

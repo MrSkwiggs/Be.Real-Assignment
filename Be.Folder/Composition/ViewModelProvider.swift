@@ -35,13 +35,13 @@ extension ViewModelProvider {
         private let session: Session
         private let root: Composition
         private let folderContentsProvider: FolderRepository
-        private let imageDataProvider: ImageDataProvider
+        private let fileDataProvider: FileDataProvider
         
         init(session: Session, root: Composition) {
             self.session = session
             self.root = root
             self.folderContentsProvider = .init(token: session.token)
-            self.imageDataProvider = .init(token: session.token)
+            self.fileDataProvider = .init(token: session.token)
         }
         
         var rootFolderViewModel: FolderView.ViewModel {
@@ -52,8 +52,8 @@ extension ViewModelProvider {
             .init(folder: folder, folderContentsProvider: folderContentsProvider, breadcrumbs: breadcrumbs)
         }
         
-        func imageDataViewModel(imageID: String) -> ImageView.ViewModel {
-            .init(imageID: imageID, imageDataProvider: imageDataProvider)
+        func fileDataViewModel(file: File) -> FileView.ViewModel {
+            .init(file: file, fileDataProvider: fileDataProvider)
         }
         
         func createFolderViewModel(currentFolderID: String, then callback: @escaping (Inode?) -> Void) -> FolderView.CreateNewFolderView.ViewModel {
