@@ -73,7 +73,9 @@ extension FolderView {
         }
         
         func uploadImageViewModel(from viewModelProvider: ViewModelProvider.SessionViewModelProvider) -> UploadImageView.ViewModel {
-            viewModelProvider.uploadImageViewModel(currentFolderID: currentFolder.id)
+            viewModelProvider.uploadImageViewModel(currentFolderID: currentFolder.id) {
+                self.getFolderContents()
+            }
         }
         
         func deleteItem(itemID: Inode.ID) {

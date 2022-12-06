@@ -103,7 +103,6 @@ struct FolderView: View {
         }
         .sheet(isPresented: $showUploadFileSheet) {
             UploadImageView(viewModel: viewModel.uploadImageViewModel(from: viewModelProvider))
-                .presentationDetents([.medium])
         }
     }
 }

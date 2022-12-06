@@ -31,11 +31,13 @@ extension FolderView.UploadImageView {
         @Published
         var hasError: Bool = false
         
+        private let onImageUploaded: () -> Void
         private let currentFolderID: String
         private let folderRepository: FolderRepository
         private var subscriptions: [AnyCancellable] = []
         
-        init(currentFolderID: String, folderRepository: FolderRepository) {
+        init(currentFolderID: String, folderRepository: FolderRepository, then callback: @escaping () -> Void) {
+            self.onImageUploaded = callback
             self.currentFolderID = currentFolderID
             self.folderRepository = folderRepository
             
@@ -67,14 +69,19 @@ extension FolderView.UploadImageView {
             folderRepository
                 .uploadFile(name: name + ".jpg", data: data, parentFolderID: currentFolderID)
                 .sink { completion in
-                    if case let .failure(error) = completion {
+                    switch completion {
+                    case let .failure(error):
                         print(error)
                         self.hasError = true
+                        
+                    case .finished:
+                        callback()
+                        self.onImageUploaded()
                     }
+                    
                     self.isLoading = false
                 } receiveValue: { file in
                     print("upload succeeded")
-                    callback()
                 }
                 .store(in: &subscriptions)
         }

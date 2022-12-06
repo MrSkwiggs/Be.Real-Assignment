@@ -74,7 +74,7 @@ extension FolderView {
                             Text("Upload")
                         }
                     }
-//                    .disabled(viewModel.canUpload)
+                    .disabled(!viewModel.canUpload)
                     
                     if viewModel.hasError {
                         Text("Something went wrong")
@@ -89,6 +89,6 @@ extension FolderView {
 
 struct UploadImageView_Previews: PreviewProvider {
     static var previews: some View {
-        FolderView.UploadImageView(viewModel: .init(currentFolderID: "", folderRepository: .init(token: "")))
+        FolderView.UploadImageView(viewModel: .init(currentFolderID: "", folderRepository: .init(token: ""), then: {}))
     }
 }
