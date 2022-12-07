@@ -18,9 +18,9 @@
 		E75E533329409A58009CE877 /* AuthenticatedComposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75E533229409A58009CE877 /* AuthenticatedComposition.swift */; };
 		E77FB8F62940B89D00D0EE17 /* CompositionFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77FB8F52940B89D00D0EE17 /* CompositionFactory.swift */; };
 		E77FB8F82940BA6B00D0EE17 /* CompositionFactoryContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77FB8F72940BA6B00D0EE17 /* CompositionFactoryContract.swift */; };
+		E77FB8FB2940BE0200D0EE17 /* RootViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77FB8FA2940BE0200D0EE17 /* RootViewModelTests.swift */; };
 		E7BE0821292540820097ED64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7BE0820292540820097ED64 /* Assets.xcassets */; };
 		E7BE0824292540820097ED64 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7BE0823292540820097ED64 /* Preview Assets.xcassets */; };
-		E7BE082E292540830097ED64 /* Be_FolderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE082D292540830097ED64 /* Be_FolderTests.swift */; };
 		E7BE0838292540830097ED64 /* Be_FolderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE0837292540830097ED64 /* Be_FolderUITests.swift */; };
 		E7BE083A292540830097ED64 /* Be_FolderUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE0839292540830097ED64 /* Be_FolderUITestsLaunchTests.swift */; };
 		E7BE08472925420C0097ED64 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE08462925420C0097ED64 /* SceneDelegate.swift */; };
@@ -183,6 +183,8 @@
 		E75E533229409A58009CE877 /* AuthenticatedComposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedComposition.swift; sourceTree = "<group>"; };
 		E77FB8F52940B89D00D0EE17 /* CompositionFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionFactory.swift; sourceTree = "<group>"; };
 		E77FB8F72940BA6B00D0EE17 /* CompositionFactoryContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionFactoryContract.swift; sourceTree = "<group>"; };
+		E77FB8F92940BE0200D0EE17 /* Be.FolderTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Be.FolderTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		E77FB8FA2940BE0200D0EE17 /* RootViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModelTests.swift; sourceTree = "<group>"; };
 		E7BE0819292540810097ED64 /* Be.Folder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Be.Folder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7BE0820292540820097ED64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E7BE0823292540820097ED64 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -381,7 +383,8 @@
 		E7BE082C292540830097ED64 /* Be.FolderTests */ = {
 			isa = PBXGroup;
 			children = (
-				E7BE082D292540830097ED64 /* Be_FolderTests.swift */,
+				E77FB8FA2940BE0200D0EE17 /* RootViewModelTests.swift */,
+				E77FB8F92940BE0200D0EE17 /* Be.FolderTests-Bridging-Header.h */,
 			);
 			path = Be.FolderTests;
 			sourceTree = "<group>";
@@ -821,6 +824,7 @@
 					};
 					E7BE0828292540830097ED64 = {
 						CreatedOnToolsVersion = 14.1;
+						LastSwiftMigration = 1410;
 						TestTargetID = E7BE0818292540810097ED64;
 					};
 					E7BE0832292540830097ED64 = {
@@ -952,7 +956,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7BE082E292540830097ED64 /* Be_FolderTests.swift in Sources */,
+				E77FB8FB2940BE0200D0EE17 /* RootViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1265,15 +1269,23 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 45V7YBK65N;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.skwiggs.be-real.Be-FolderTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "Be.FolderTests/Be.FolderTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Be.Folder.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Be.Folder";
@@ -1285,15 +1297,22 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 45V7YBK65N;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.skwiggs.be-real.Be-FolderTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "Be.FolderTests/Be.FolderTests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Be.Folder.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Be.Folder";

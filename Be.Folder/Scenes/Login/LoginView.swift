@@ -88,6 +88,6 @@ struct CheckBoxView: View {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView(viewModel: .init(loginProvider: Mock.LoginProvider(error: .authFailed)))
+        LoginView(viewModel: .init(loginProvider: Mock.LoginProvider(loginResult: .failure(.authFailed))))
     }
 }
