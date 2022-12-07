@@ -26,42 +26,36 @@ class ViewModelProvider: ObservableObject {
     }
     
     func sessionViewModelProvider(session: Session) -> SessionViewModelProvider {
-        .init(session: session, root: root)
+        .init(root: root.authenticatedComposition(for: session))
     }
 }
 
 extension ViewModelProvider {
     class SessionViewModelProvider: ObservableObject {
-        private let session: Session
-        private let root: Composition
-        private let folderContentsProvider: FolderRepository
-        private let fileDataProvider: FileDataProvider
+        private let root: AuthenticatedComposition
         
-        init(session: Session, root: Composition) {
-            self.session = session
+        init(root: AuthenticatedComposition) {
             self.root = root
-            self.folderContentsProvider = .init(token: session.token)
-            self.fileDataProvider = .init(token: session.token)
         }
         
         var rootFolderViewModel: FolderView.ViewModel {
-            .init(folder: session.user.rootFolder, folderContentsProvider: folderContentsProvider)
+            .init(folder: root.session.user.rootFolder, folderContentsProvider: root.folderContentsProvider)
         }
         
         func folderContentsViewModel(for folder: Inode, breadcrumbs: String) -> FolderView.ViewModel {
-            .init(folder: folder, folderContentsProvider: folderContentsProvider, breadcrumbs: breadcrumbs)
+            .init(folder: folder, folderContentsProvider: root.folderContentsProvider, breadcrumbs: breadcrumbs)
         }
         
-        func fileDataViewModel(file: File) -> FileView.ViewModel {
-            .init(file: file, fileDataProvider: fileDataProvider)
+        func fileDataViewModel(file: Networking.File) -> FileView.ViewModel {
+            .init(file: file, fileDataProvider: root.fileDataProvider)
         }
         
         func createFolderViewModel(currentFolderID: String, then callback: @escaping (Inode?) -> Void) -> FolderView.CreateNewFolderView.ViewModel {
-            .init(currentFolderID: currentFolderID, folderRepository: folderContentsProvider, onFolderCreated: callback)
+            .init(currentFolderID: currentFolderID, folderRepository: root.folderContentsProvider, onFolderCreated: callback)
         }
         
         func uploadImageViewModel(currentFolderID: String, then callback: @escaping () -> Void) -> FolderView.UploadImageView.ViewModel {
-            .init(currentFolderID: currentFolderID, folderRepository: folderContentsProvider, then: callback)
+            .init(currentFolderID: currentFolderID, folderRepository: root.folderContentsProvider, then: callback)
         }
     }
 }

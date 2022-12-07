@@ -9,7 +9,7 @@ import Foundation
 import Combine
 import Networking
 
-public class FolderRepository {
+public class FolderRepository: FolderRepositoryContract {
     private let token: String
     
     public init(token: String) {

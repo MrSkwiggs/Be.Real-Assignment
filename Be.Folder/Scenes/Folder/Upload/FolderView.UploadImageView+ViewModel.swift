@@ -33,10 +33,10 @@ extension FolderView.UploadImageView {
         
         private let onImageUploaded: () -> Void
         private let currentFolderID: String
-        private let folderRepository: FolderRepository
+        private let folderRepository: FolderRepositoryContract
         private var subscriptions: [AnyCancellable] = []
         
-        init(currentFolderID: String, folderRepository: FolderRepository, then callback: @escaping () -> Void) {
+        init(currentFolderID: String, folderRepository: FolderRepositoryContract, then callback: @escaping () -> Void) {
             self.onImageUploaded = callback
             self.currentFolderID = currentFolderID
             self.folderRepository = folderRepository

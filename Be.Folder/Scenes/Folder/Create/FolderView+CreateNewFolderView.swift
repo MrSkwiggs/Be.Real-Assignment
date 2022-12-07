@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Core
 
 extension FolderView {
     struct CreateNewFolderView: View {
@@ -58,7 +59,8 @@ extension FolderView {
 
 struct CreateNewFolder_Previews: PreviewProvider {
     static var previews: some View {
-        FolderView.CreateNewFolderView(viewModel: .init(currentFolderID: "123", folderRepository: .init(token: "hello"), onFolderCreated: { _ in
+        FolderView.CreateNewFolderView(viewModel:
+                .init(currentFolderID: "123", folderRepository: Mock.FolderRepository(), onFolderCreated: { _ in
             //
         }))
     }

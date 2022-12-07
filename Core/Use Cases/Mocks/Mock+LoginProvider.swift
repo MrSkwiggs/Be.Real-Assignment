@@ -9,8 +9,8 @@ import Foundation
 import Combine
 import Networking
 
-public extension Mock {
-    class LoginProvider: LoginContract {
+extension Mock {
+    open class LoginProvider: LoginContract {
         
         private let error: Login.Error?
         private let sessionSubject: PassthroughSubject<Session, Never> = .init()
@@ -27,7 +27,7 @@ public extension Mock {
             
             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
                 guard let error = self.error else {
-                    publisher.send(true)
+                    publisher.complete(with: true)
                     self.sessionSubject.send(.init(user: Networking.Mock.user, token: "MuchS3cr3t"))
                     return
                 }

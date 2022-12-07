@@ -7,6 +7,7 @@
 
 import SwiftUI
 import PhotosUI
+import Core
 
 extension FolderView {
     struct UploadImageView: View {
@@ -89,6 +90,7 @@ extension FolderView {
 
 struct UploadImageView_Previews: PreviewProvider {
     static var previews: some View {
-        FolderView.UploadImageView(viewModel: .init(currentFolderID: "", folderRepository: .init(token: ""), then: {}))
+        FolderView.UploadImageView(viewModel:
+                .init(currentFolderID: "", folderRepository: Mock.FolderRepository(), then: {}))
     }
 }

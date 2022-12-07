@@ -13,8 +13,10 @@ import Networking
 extension FolderView {
     class ViewModel: ObservableObject {
         
+        typealias File = Networking.File
+        
         private let currentFolder: Inode
-        private let folderContentsProvider: FolderRepository
+        private let folderContentsProvider: FolderRepositoryContract
         
         @Published
         var folders: [Inode] = []
@@ -30,7 +32,7 @@ extension FolderView {
         private var fetch: AnyCancellable?
         private var delete: AnyCancellable?
         
-        init(folder: Inode, folderContentsProvider: FolderRepository, breadcrumbs: String? = nil) {
+        init(folder: Inode, folderContentsProvider: FolderRepositoryContract, breadcrumbs: String? = nil) {
             self.currentFolder = folder
             self.folderContentsProvider = folderContentsProvider
             self.breadcrumbs = breadcrumbs.map { "\($0) / \(folder.name)" } ?? folder.name

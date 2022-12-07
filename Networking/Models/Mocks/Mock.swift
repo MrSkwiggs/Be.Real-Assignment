@@ -22,4 +22,12 @@ public enum Mock {
                                          parentID: folder.id,
                                          name: "Life.jpg",
                                          modificationDate: .now)
+    
+    public static func folders(from parent: Folder = folder) -> [Folder] {
+        var result: [Folder] = []
+        for index in 2...10 {
+            result.append(.init(id: "\(index)", parentID: parent.id, name: "SubFolder \(index)", modificationDate: .now))
+        }
+        return result
+    }
 }

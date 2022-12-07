@@ -17,3 +17,7 @@ public class Session: Codable {
         self.token = token
     }
 }
+
+public extension Mock {
+    static let session: Session = .init(user: Networking.Mock.user, token: "123")
+}

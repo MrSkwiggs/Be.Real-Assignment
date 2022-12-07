@@ -41,10 +41,10 @@ struct RootView: View {
 
 struct RootView_Previews: PreviewProvider {
     
-    static let viewModelProvider = ViewModelProvider(root: .mock())
+    static let viewModelProvider = ViewModelProvider(root: Mock.composition)
     
     static var previews: some View {
         RootView(viewModel: viewModelProvider.rootViewModel)
-            .environmentObject(ViewModelProvider(root: .mock()))
+            .environmentObject(ViewModelProvider(root: Mock.composition))
     }
 }

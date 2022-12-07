@@ -12,11 +12,13 @@ import Combine
 
 extension FileView {
     class ViewModel: ObservableObject {
+        typealias File = Networking.File
+        
         private var fetch: AnyCancellable?
         private let file: File
         
         @Published
-        var fileData: FileDataProvider.FileData?
+        var fileData: Core.File.Data?
         
         @Published
         var navbarTitle: String = ""
@@ -24,9 +26,9 @@ extension FileView {
         @Published
         var hasError: Bool = false
         
-        let fileDataProvider: FileDataProvider
+        let fileDataProvider: FileDataContract
         
-        init(file: File, fileDataProvider: FileDataProvider) {
+        init(file: File, fileDataProvider: FileDataContract) {
             self.file = file
             self.fileDataProvider = fileDataProvider
             self.navbarTitle = file.name

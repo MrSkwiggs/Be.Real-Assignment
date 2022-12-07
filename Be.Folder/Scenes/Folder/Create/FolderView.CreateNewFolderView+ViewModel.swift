@@ -28,7 +28,7 @@ extension FolderView.CreateNewFolderView {
         var error: String?
         
         private let onFolderCreated: (Inode?) -> Void
-        private let folderRepository: FolderRepository
+        private let folderRepository: FolderRepositoryContract
         private let currentFolderID: String
         private var subscriptions: [AnyCancellable] = []
         
@@ -54,7 +54,7 @@ extension FolderView.CreateNewFolderView {
                 .store(in: &subscriptions)
         }
         
-        init(currentFolderID: String, folderRepository: FolderRepository, onFolderCreated: @escaping (Inode?) -> Void) {
+        init(currentFolderID: String, folderRepository: FolderRepositoryContract, onFolderCreated: @escaping (Inode?) -> Void) {
             self.currentFolderID = currentFolderID
             self.folderRepository = folderRepository
             self.onFolderCreated = onFolderCreated
