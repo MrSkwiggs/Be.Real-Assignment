@@ -19,6 +19,7 @@
 		E77FB8F62940B89D00D0EE17 /* CompositionFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77FB8F52940B89D00D0EE17 /* CompositionFactory.swift */; };
 		E77FB8F82940BA6B00D0EE17 /* CompositionFactoryContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77FB8F72940BA6B00D0EE17 /* CompositionFactoryContract.swift */; };
 		E77FB8FB2940BE0200D0EE17 /* RootViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77FB8FA2940BE0200D0EE17 /* RootViewModelTests.swift */; };
+		E77FB8FD2940C5F300D0EE17 /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77FB8FC2940C5F300D0EE17 /* LoginViewModelTests.swift */; };
 		E7BE0821292540820097ED64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7BE0820292540820097ED64 /* Assets.xcassets */; };
 		E7BE0824292540820097ED64 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7BE0823292540820097ED64 /* Preview Assets.xcassets */; };
 		E7BE0838292540830097ED64 /* Be_FolderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE0837292540830097ED64 /* Be_FolderUITests.swift */; };
@@ -185,11 +186,11 @@
 		E77FB8F72940BA6B00D0EE17 /* CompositionFactoryContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionFactoryContract.swift; sourceTree = "<group>"; };
 		E77FB8F92940BE0200D0EE17 /* Be.FolderTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Be.FolderTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		E77FB8FA2940BE0200D0EE17 /* RootViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModelTests.swift; sourceTree = "<group>"; };
+		E77FB8FC2940C5F300D0EE17 /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
 		E7BE0819292540810097ED64 /* Be.Folder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Be.Folder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7BE0820292540820097ED64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E7BE0823292540820097ED64 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E7BE0829292540830097ED64 /* Be.FolderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Be.FolderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E7BE082D292540830097ED64 /* Be_FolderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Be_FolderTests.swift; sourceTree = "<group>"; };
 		E7BE0833292540830097ED64 /* Be.FolderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Be.FolderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7BE0837292540830097ED64 /* Be_FolderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Be_FolderUITests.swift; sourceTree = "<group>"; };
 		E7BE0839292540830097ED64 /* Be_FolderUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Be_FolderUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -384,6 +385,7 @@
 			isa = PBXGroup;
 			children = (
 				E77FB8FA2940BE0200D0EE17 /* RootViewModelTests.swift */,
+				E77FB8FC2940C5F300D0EE17 /* LoginViewModelTests.swift */,
 				E77FB8F92940BE0200D0EE17 /* Be.FolderTests-Bridging-Header.h */,
 			);
 			path = Be.FolderTests;
@@ -956,6 +958,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E77FB8FD2940C5F300D0EE17 /* LoginViewModelTests.swift in Sources */,
 				E77FB8FB2940BE0200D0EE17 /* RootViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

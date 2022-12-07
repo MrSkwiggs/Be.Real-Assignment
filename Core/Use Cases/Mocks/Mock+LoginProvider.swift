@@ -13,6 +13,7 @@ extension Mock {
     open class LoginProvider: LoginContract {
         
         private let sessionSubject: PassthroughSubject<Session, Never> = .init()
+        private let loginAttemptsSubject: PassthroughSubject<Void, Never> = .init()
         private let loginResult: Result<Session, Login.Error>
         
         /// Whether or not login attempts should succeed (fails with the given error, if any. Succeeds otherwise)
@@ -22,7 +23,12 @@ extension Mock {
         
         public lazy var sessionPublisher: AnyPublisher<Session, Never> = sessionSubject.eraseToAnyPublisher()
         
+        /// Emits whenever this provider's login(_:) function is called
+        public lazy var loginAttemptsPublisher: AnyPublisher<Void, Never> = loginAttemptsSubject.eraseToAnyPublisher()
+        
         public func login(username: String, password: String) -> AnyPublisher<Bool, Login.Error> {
+            loginAttemptsSubject.send(())
+            
             let publisher = PassthroughSubject<Bool, Login.Error>()
             
             RunLoop.main.perform { [weak self] in

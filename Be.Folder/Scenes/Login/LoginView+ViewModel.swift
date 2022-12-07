@@ -47,16 +47,12 @@ extension LoginView {
             $username
                 .combineLatest($password)
                 .sink { (username, password) in
-                    self.canLogin = !username.isEmpty && !password.isEmpty
-                    self.usernameFieldHasError = username.contains(/:/)
-                    self.passwordFieldHasError = password.contains(/:/)
-                }
-                .store(in: &subscriptions)
-            
-            self.loginProvider
-                .sessionPublisher
-                .sink { session in
-                    print(session)
+                    self.usernameFieldHasError = username.contains(":")
+                    self.passwordFieldHasError = password.contains(":")
+                    self.canLogin = !username.isEmpty
+                        && !password.isEmpty
+                        && !self.usernameFieldHasError
+                        && !self.passwordFieldHasError
                 }
                 .store(in: &subscriptions)
         }

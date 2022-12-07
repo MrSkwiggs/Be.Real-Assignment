@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-extension Subject {
+public extension Subject {
     
     /// Maps the given Result type to its corresponding success or failure state, then sends that to the subject accordingly.
     /// - important: This sends a completion signal to the subject.
@@ -27,4 +27,3 @@ extension Subject {
         send(completion: .finished)
     }
 }
-

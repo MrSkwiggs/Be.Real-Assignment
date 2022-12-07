@@ -53,6 +53,6 @@ final class RootViewModelTests: XCTestCase {
             .store(in: &subscriptions)
         
         _ = loginProvider.login(username: "", password: "") // credentials are irrelevant
-        wait(for: [completionExpectation, sessionExpectation], timeout: 2)
+        waitForExpectations(timeout: 2)
     }
 }
