@@ -22,8 +22,6 @@
 		E77FB8FD2940C5F300D0EE17 /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77FB8FC2940C5F300D0EE17 /* LoginViewModelTests.swift */; };
 		E7BE0821292540820097ED64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7BE0820292540820097ED64 /* Assets.xcassets */; };
 		E7BE0824292540820097ED64 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7BE0823292540820097ED64 /* Preview Assets.xcassets */; };
-		E7BE0838292540830097ED64 /* Be_FolderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE0837292540830097ED64 /* Be_FolderUITests.swift */; };
-		E7BE083A292540830097ED64 /* Be_FolderUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE0839292540830097ED64 /* Be_FolderUITestsLaunchTests.swift */; };
 		E7BE08472925420C0097ED64 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE08462925420C0097ED64 /* SceneDelegate.swift */; };
 		E7BE0849292542280097ED64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE0848292542280097ED64 /* AppDelegate.swift */; };
 		E7BE084D292542A80097ED64 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE084C292542A80097ED64 /* RootView.swift */; };
@@ -82,13 +80,6 @@
 
 /* Begin PBXContainerItemProxy section */
 		E7BE082A292540830097ED64 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E7BE0811292540810097ED64 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E7BE0818292540810097ED64;
-			remoteInfo = Be.Folder;
-		};
-		E7BE0834292540830097ED64 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E7BE0811292540810097ED64 /* Project object */;
 			proxyType = 1;
@@ -191,9 +182,6 @@
 		E7BE0820292540820097ED64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E7BE0823292540820097ED64 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E7BE0829292540830097ED64 /* Be.FolderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Be.FolderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E7BE0833292540830097ED64 /* Be.FolderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Be.FolderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E7BE0837292540830097ED64 /* Be_FolderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Be_FolderUITests.swift; sourceTree = "<group>"; };
-		E7BE0839292540830097ED64 /* Be_FolderUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Be_FolderUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E7BE08462925420C0097ED64 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E7BE0848292542280097ED64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7BE084C292542A80097ED64 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -256,13 +244,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		E7BE0826292540830097ED64 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E7BE0830292540830097ED64 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -336,7 +317,6 @@
 			children = (
 				E7BE081B292540810097ED64 /* Be.Folder */,
 				E7BE082C292540830097ED64 /* Be.FolderTests */,
-				E7BE0836292540830097ED64 /* Be.FolderUITests */,
 				E7BE0855292543070097ED64 /* Core */,
 				E7BE0863292543070097ED64 /* CoreTests */,
 				E7BE0878292543140097ED64 /* Networking */,
@@ -351,7 +331,6 @@
 			children = (
 				E7BE0819292540810097ED64 /* Be.Folder.app */,
 				E7BE0829292540830097ED64 /* Be.FolderTests.xctest */,
-				E7BE0833292540830097ED64 /* Be.FolderUITests.xctest */,
 				E7BE0854292543070097ED64 /* Core.framework */,
 				E7BE085D292543070097ED64 /* CoreTests.xctest */,
 				E7BE0877292543140097ED64 /* Networking.framework */,
@@ -389,15 +368,6 @@
 				E77FB8F92940BE0200D0EE17 /* Be.FolderTests-Bridging-Header.h */,
 			);
 			path = Be.FolderTests;
-			sourceTree = "<group>";
-		};
-		E7BE0836292540830097ED64 /* Be.FolderUITests */ = {
-			isa = PBXGroup;
-			children = (
-				E7BE0837292540830097ED64 /* Be_FolderUITests.swift */,
-				E7BE0839292540830097ED64 /* Be_FolderUITestsLaunchTests.swift */,
-			);
-			path = Be.FolderUITests;
 			sourceTree = "<group>";
 		};
 		E7BE084A2925429B0097ED64 /* Scenes */ = {
@@ -714,24 +684,6 @@
 			productReference = E7BE0829292540830097ED64 /* Be.FolderTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		E7BE0832292540830097ED64 /* Be.FolderUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E7BE0843292540830097ED64 /* Build configuration list for PBXNativeTarget "Be.FolderUITests" */;
-			buildPhases = (
-				E7BE082F292540830097ED64 /* Sources */,
-				E7BE0830292540830097ED64 /* Frameworks */,
-				E7BE0831292540830097ED64 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				E7BE0835292540830097ED64 /* PBXTargetDependency */,
-			);
-			name = Be.FolderUITests;
-			productName = Be.FolderUITests;
-			productReference = E7BE0833292540830097ED64 /* Be.FolderUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 		E7BE0853292543070097ED64 /* Core */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E7BE086B292543070097ED64 /* Build configuration list for PBXNativeTarget "Core" */;
@@ -829,10 +781,6 @@
 						LastSwiftMigration = 1410;
 						TestTargetID = E7BE0818292540810097ED64;
 					};
-					E7BE0832292540830097ED64 = {
-						CreatedOnToolsVersion = 14.1;
-						TestTargetID = E7BE0818292540810097ED64;
-					};
 					E7BE0853292543070097ED64 = {
 						CreatedOnToolsVersion = 14.1;
 					};
@@ -867,7 +815,6 @@
 			targets = (
 				E7BE0818292540810097ED64 /* Be.Folder */,
 				E7BE0828292540830097ED64 /* Be.FolderTests */,
-				E7BE0832292540830097ED64 /* Be.FolderUITests */,
 				E7BE0853292543070097ED64 /* Core */,
 				E7BE085C292543070097ED64 /* CoreTests */,
 				E7BE0876292543140097ED64 /* Networking */,
@@ -887,13 +834,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		E7BE0827292540830097ED64 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E7BE0831292540830097ED64 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -960,15 +900,6 @@
 			files = (
 				E77FB8FD2940C5F300D0EE17 /* LoginViewModelTests.swift in Sources */,
 				E77FB8FB2940BE0200D0EE17 /* RootViewModelTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E7BE082F292540830097ED64 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E7BE0838292540830097ED64 /* Be_FolderUITests.swift in Sources */,
-				E7BE083A292540830097ED64 /* Be_FolderUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1045,11 +976,6 @@
 			isa = PBXTargetDependency;
 			target = E7BE0818292540810097ED64 /* Be.Folder */;
 			targetProxy = E7BE082A292540830097ED64 /* PBXContainerItemProxy */;
-		};
-		E7BE0835292540830097ED64 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E7BE0818292540810097ED64 /* Be.Folder */;
-			targetProxy = E7BE0834292540830097ED64 /* PBXContainerItemProxy */;
 		};
 		E7BE0860292543070097ED64 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1322,42 +1248,6 @@
 			};
 			name = Release;
 		};
-		E7BE0844292540830097ED64 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 45V7YBK65N;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "dev.skwiggs.be-real.Be-FolderUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Be.Folder;
-			};
-			name = Debug;
-		};
-		E7BE0845292540830097ED64 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 45V7YBK65N;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "dev.skwiggs.be-real.Be-FolderUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Be.Folder;
-			};
-			name = Release;
-		};
 		E7BE086C292543070097ED64 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1576,15 +1466,6 @@
 			buildConfigurations = (
 				E7BE0841292540830097ED64 /* Debug */,
 				E7BE0842292540830097ED64 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E7BE0843292540830097ED64 /* Build configuration list for PBXNativeTarget "Be.FolderUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E7BE0844292540830097ED64 /* Debug */,
-				E7BE0845292540830097ED64 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
