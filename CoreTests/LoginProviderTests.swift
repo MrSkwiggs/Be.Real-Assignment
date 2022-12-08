@@ -27,6 +27,7 @@ final class LoginProviderTests: XCTestCase {
         subscriptions = []
     }
     
+    /// For some reason, this test always fails; I've verified that the login provider emits correctly again and again, to no avail; the publisher returned by the `login(_:)` call never sends the value, even though it does send the `completion` event 🤯
     func testLoginSuccessful() {
         let valueExpectation = expectation(description: "LoginProvider should emit login result value")
         let completionExpectation = expectation(description: "LoginProvider should emit completion")
