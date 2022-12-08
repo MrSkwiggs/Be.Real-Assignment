@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Networking
 
 public class Composition {
     
@@ -25,7 +26,7 @@ public class Composition {
 
 public extension Composition {
     /// Main composition root for production environment
-    static let main: Composition = .init(loginProvider: LoginProvider(),
+    static let main: Composition = .init(loginProvider: LoginProvider(dataSource: BeFolderAPI.main),
                                          compositionFactory: CompositionFactory())
 }
 

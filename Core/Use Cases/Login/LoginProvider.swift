@@ -15,6 +15,12 @@ public class LoginProvider: LoginContract {
     
     public var sessionPublisher: AnyPublisher<Session, Never> { sessionSubject.eraseToAnyPublisher() }
     
+    private let dataSource: LoginNetworkDataSource
+    
+    init(dataSource: LoginNetworkDataSource) {
+        self.dataSource = dataSource
+    }
+    
     public func login(username: String, password: String) -> AnyPublisher<Bool, Login.Error> {
         let publisher = PassthroughSubject<Bool, Login.Error>()
         
@@ -27,7 +33,8 @@ public class LoginProvider: LoginContract {
             publisher.complete(with: .failure(.failedTokenEncoding))
             return publisher.eraseToAnyPublisher()
         }
-        BeFolderAPI.User(token: token).perform { [weak self] result in
+        
+        _ = dataSource.login(token: token) { [weak self] result in
             publisher.complete(
                 with: result
                     .mapError({ error in
@@ -37,7 +44,8 @@ public class LoginProvider: LoginContract {
                         return .authFailed
                     })
                     .map({
-                        self!.sessionSubject.send(.init(user: $0, token: token))
+                        guard let self else { return false }
+                        self.sessionSubject.send(.init(user: $0, token: token))
                         return true
                     })
             )

@@ -12,7 +12,7 @@ public struct BeFolderAPI {
     
     fileprivate static var shared: BeFolderAPI = .init()
     
-    public static func configure(using sharedInstance: BeFolderAPI) {
+    fileprivate static func configure(using sharedInstance: BeFolderAPI) {
         shared = sharedInstance
     }
     
@@ -49,4 +49,12 @@ public extension NetswiftRequestPerformable where Self: BeFolderEndpoint {
     func perform() async -> NetswiftResult<Self.Response> {
         return await BeFolderAPI.shared.perform(self)
     }
+}
+
+public extension BeFolderAPI {
+    static let main: BeFolderAPI = {
+        let main = BeFolderAPI()
+        Self.configure(using: main)
+        return main
+    }()
 }
