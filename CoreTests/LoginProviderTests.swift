@@ -31,30 +31,19 @@ final class LoginProviderTests: XCTestCase {
         let valueExpectation = expectation(description: "LoginProvider should emit login result value")
         let completionExpectation = expectation(description: "LoginProvider should emit completion")
         
-        Task { [self] in
-            loginProvider
-                .login(username: "whatever", password: "wh4t3v3r")
-                .sink { completion in
-                    completionExpectation.fulfill()
-                    if case .failure = completion {
-                        XCTFail("Unexpected login failure")
-                    }
-                } receiveValue: { value in
-                    XCTAssertEqual(value, true)
-                    valueExpectation.fulfill()
+        self.loginProvider
+            .login(username: "whatever", password: "wh4t3v3r")
+            .sink { completion in
+                completionExpectation.fulfill()
+                if case .failure = completion {
+                    XCTFail("Unexpected login failure")
                 }
-
-//                .sink { completion in
-//                    completionExpectation.fulfill()
-//                    if case .failure = completion {
-//                        XCTFail("Unexpected login failure")
-//                    }
-//                } receiveValue: { didSucceed in
-//                    valueExpectation.fulfill()
-//                    XCTAssertEqual(didSucceed, true, "Login should have succeeded")
-//                }
-//                .store(in: &subscriptions)
-        }
+            } receiveValue: { value in
+                XCTAssertEqual(value, true)
+                valueExpectation.fulfill()
+            }
+            .store(in: &self.subscriptions)
+        
         waitForExpectations(timeout: 2)
     }
     
