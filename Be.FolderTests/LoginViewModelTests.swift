@@ -31,7 +31,7 @@ final class LoginViewModelTests: XCTestCase {
     }
     
     func zipCanLoginUsernameErrorAndPasswordErrorPublishers(then callback: @escaping (Bool, Bool, Bool) -> Void) {
-        // Debounces are needed as setting credentials will emit for each letter
+        // Debounces are needed as setting credentials will emit for each letter, which prompts all publishers to re-emit every time
         Publishers.Zip3(viewModel.$canLogin.dropFirst().debounce(for: 0.5, scheduler: RunLoop.main),
                                  viewModel.$usernameFieldHasError.dropFirst().debounce(for: 0.5, scheduler: RunLoop.main),
                                  viewModel.$passwordFieldHasError.dropFirst().debounce(for: 0.5, scheduler: RunLoop.main))

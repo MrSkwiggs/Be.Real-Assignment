@@ -7,6 +7,6 @@
 
 import Netswift
 
-public protocol LoginNetworkDataSource {
+public protocol LoginDataSourceContract {
     func login(token: String, callback: @escaping NetswiftHandler<User>) -> NetswiftTask?
 }

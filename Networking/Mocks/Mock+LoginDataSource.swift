@@ -8,11 +8,19 @@
 import Netswift
 
 extension Mock {
-    public struct LoginProvider: LoginNetworkDataSource {
+    public class LoginDataSource: LoginDataSourceContract {
         
         let result: NetswiftResult<User>
         
-        public func login(token: String, callback: NetswiftHandler<User>) -> Netswift.NetswiftTask? {
+        /// The latest value sent to the `login(_:)` func.
+        public var token: String?
+        
+        init(result: NetswiftResult<User>) {
+            self.result = result
+        }
+        
+        public func login(token: String, callback: NetswiftHandler<User>) -> NetswiftTask? {
+            self.token = token
             callback(result)
             return nil
         }

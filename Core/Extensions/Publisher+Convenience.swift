@@ -24,6 +24,8 @@ public extension Subject {
     /// Sends the given output along with a `.finished` completion signal.
     func complete(with output: Output) {
         send(output)
-        send(completion: .finished)
+        DispatchQueue.main.async {
+            self.send(completion: .finished)
+        }
     }
 }

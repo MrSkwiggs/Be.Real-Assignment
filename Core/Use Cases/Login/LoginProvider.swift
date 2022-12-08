@@ -15,9 +15,9 @@ public class LoginProvider: LoginContract {
     
     public var sessionPublisher: AnyPublisher<Session, Never> { sessionSubject.eraseToAnyPublisher() }
     
-    private let dataSource: LoginNetworkDataSource
+    private let dataSource: LoginDataSourceContract
     
-    init(dataSource: LoginNetworkDataSource) {
+    init(dataSource: LoginDataSourceContract) {
         self.dataSource = dataSource
     }
     

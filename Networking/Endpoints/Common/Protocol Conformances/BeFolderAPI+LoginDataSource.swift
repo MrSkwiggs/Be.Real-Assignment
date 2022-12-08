@@ -7,7 +7,7 @@
 
 import Netswift
 
-extension BeFolderAPI: LoginNetworkDataSource {
+extension BeFolderAPI: LoginDataSourceContract {
     public func login(token: String, callback: @escaping NetswiftHandler<User.Response>) -> NetswiftTask? {
         User(token: token).perform(callback)
     }

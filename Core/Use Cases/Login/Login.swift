@@ -11,7 +11,7 @@ import Foundation
 public enum Login {}
 
 public extension Login {
-    enum Error: Swift.Error {
+    enum Error: Swift.Error, Equatable {
         /// Username and/or password contains an invalid character (such as `:`)
         case invalidCharacter
         /// Unable to generate a base-64 encoded token
@@ -20,5 +20,16 @@ public extension Login {
         case authFailed
         /// Something went wrong with the network request
         case networkError(error: Swift.Error)
+        
+        public static func == (lhs: Login.Error, rhs: Login.Error) -> Bool {
+            switch (lhs, rhs) {
+            case (.invalidCharacter, .invalidCharacter): return true
+            case (.failedTokenEncoding, .failedTokenEncoding): return true
+            case (.authFailed, .authFailed): return true
+            case (.networkError, .networkError): return true
+                
+            default: return false
+            }
+        }
     }
 }
