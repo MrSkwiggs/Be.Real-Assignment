@@ -57,4 +57,10 @@ public extension BeFolderAPI {
         Self.configure(using: main)
         return main
     }()
+    
+    static func mock(_ httpPerformer: NetswiftHTTPPerformer) -> BeFolderAPI {
+        let mock = BeFolderAPI(performer: NetswiftPerformer(requestPerformer: httpPerformer))
+        Self.configure(using: mock)
+        return mock
+    }
 }

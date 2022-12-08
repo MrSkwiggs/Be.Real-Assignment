@@ -24,6 +24,7 @@
 		E797E53B2941FDC200CAB703 /* Mock+LoginDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E797E53A2941FDC200CAB703 /* Mock+LoginDataSource.swift */; };
 		E797E53E2941FEBA00CAB703 /* BeFolderAPI+LoginDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E797E53D2941FEBA00CAB703 /* BeFolderAPI+LoginDataSource.swift */; };
 		E7A8376029420419001E11F2 /* LoginProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A8375F29420419001E11F2 /* LoginProviderTests.swift */; };
+		E7A8376229422275001E11F2 /* Mock+HTTPRequestPerformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A8376129422275001E11F2 /* Mock+HTTPRequestPerformer.swift */; };
 		E7BE0821292540820097ED64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7BE0820292540820097ED64 /* Assets.xcassets */; };
 		E7BE0824292540820097ED64 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7BE0823292540820097ED64 /* Preview Assets.xcassets */; };
 		E7BE08472925420C0097ED64 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE08462925420C0097ED64 /* SceneDelegate.swift */; };
@@ -186,6 +187,7 @@
 		E797E53A2941FDC200CAB703 /* Mock+LoginDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Mock+LoginDataSource.swift"; sourceTree = "<group>"; };
 		E797E53D2941FEBA00CAB703 /* BeFolderAPI+LoginDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BeFolderAPI+LoginDataSource.swift"; sourceTree = "<group>"; };
 		E7A8375F29420419001E11F2 /* LoginProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProviderTests.swift; sourceTree = "<group>"; };
+		E7A8376129422275001E11F2 /* Mock+HTTPRequestPerformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Mock+HTTPRequestPerformer.swift"; sourceTree = "<group>"; };
 		E7BE0819292540810097ED64 /* Be.Folder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Be.Folder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7BE0820292540820097ED64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E7BE0823292540820097ED64 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -577,6 +579,7 @@
 			children = (
 				E7BE08CF2925963C0097ED64 /* Mock.swift */,
 				E797E53A2941FDC200CAB703 /* Mock+LoginDataSource.swift */,
+				E7A8376129422275001E11F2 /* Mock+HTTPRequestPerformer.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -981,6 +984,7 @@
 			files = (
 				E7BE08A629255E950097ED64 /* File.swift in Sources */,
 				E7F3D1C629380D4D0031B4A0 /* BeFolderAPI.Item.DeleteItem.swift in Sources */,
+				E7A8376229422275001E11F2 /* Mock+HTTPRequestPerformer.swift in Sources */,
 				E7BE08D529259DA30097ED64 /* BeFolderAPI.Item.FolderContents.swift in Sources */,
 				E7BE08D02925963C0097ED64 /* Mock.swift in Sources */,
 				E7BE08B62925667A0097ED64 /* BeFolderEndpoint.swift in Sources */,
