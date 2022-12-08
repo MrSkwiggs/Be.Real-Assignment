@@ -15,17 +15,21 @@ public extension Subject {
     func complete(with result: Result<Output, Failure>) {
         switch result {
         case .success(let success):
-            complete(with: success)
+            complete(success)
         case .failure(let failure):
             send(completion: .failure(failure))
         }
     }
     
     /// Sends the given output along with a `.finished` completion signal.
-    func complete(with output: Output) {
+    func complete(_ output: Output) {
         send(output)
-        DispatchQueue.main.async {
-            self.send(completion: .finished)
-        }
+        self.send(completion: .finished)
+    }
+    
+    /// Sends a void value along with a `.finished` completion signal.
+    func complete() where Output == Void {
+        send()
+        self.send(completion: .finished)
     }
 }

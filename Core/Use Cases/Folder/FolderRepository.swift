@@ -29,7 +29,7 @@ public class FolderRepository: FolderRepositoryContract {
                     publisher.send(completion: .failure(.networkError))
                     
                 case let .success(inodes):
-                    publisher.complete(with: inodes)
+                    publisher.complete(inodes)
                 }
             }
         
@@ -50,7 +50,7 @@ public class FolderRepository: FolderRepositoryContract {
                     publisher.send(completion: .finished)
                     
                 case let .success(inode):
-                    publisher.complete(with: inode)
+                    publisher.complete(inode)
                 }
             }
         
@@ -70,7 +70,7 @@ public class FolderRepository: FolderRepositoryContract {
                     publisher.send(completion: .failure(.networkError))
                     
                 case let .success(inode):
-                    publisher.complete(with: inode)
+                    publisher.complete(inode)
                 }
             }
         
@@ -90,7 +90,7 @@ public class FolderRepository: FolderRepositoryContract {
                     publisher.send(completion: .failure(.networkError))
                     
                 case .success:
-                    publisher.complete(with: ())
+                    publisher.complete()
                 }
             }
         

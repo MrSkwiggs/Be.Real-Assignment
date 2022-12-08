@@ -42,7 +42,7 @@ public class FileDataProvider: FileDataContract {
                     publisher.send(completion: .failure(.networkError))
                     
                 case let .success(data):
-                    publisher.complete(with: data)
+                    publisher.complete(data)
                 }
             }
         

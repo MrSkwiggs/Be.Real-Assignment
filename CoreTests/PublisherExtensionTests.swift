@@ -87,7 +87,7 @@ final class PublisherExtensionTests: XCTestCase {
             }
             .store(in: &subscriptions)
         
-        subject.complete(with: expectedValue)
+        subject.complete(expectedValue)
         
         waitForExpectations(timeout: 2)
     }
