@@ -201,8 +201,6 @@ The app is built to handle errors & asynchronous data flows. Loading indicators 
 
 Likewise, errors and issues are relayed to the user, and more often that not, let the user retry failed operations.
 
-![Delays   Errors](Screenshots/Delays%20%26%20Errors.png)
-
 # App shortcomings
 
 The app does not to persist any data (such as user session). This was a conscious decision, but because the app is written in a way that permits dependency injection, implementing this would not be too much work.
