@@ -7,8 +7,12 @@
 
 import Foundation
 
+/// A file representation for an `Inode`
 public class File: Inode {
+    
+    /// The raw blob size for this file.
     public let size: Int
+    /// The type of content this file holds.
     public let contentType: ContentType
     
     private enum CodingKeys: String, CodingKey {

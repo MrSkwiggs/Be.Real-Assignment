@@ -8,7 +8,11 @@
 import Foundation
 
 public extension BeFolderAPI {
+    
+    /// Item namespace
     enum Item {
+        
+        /// Default group path
         public static var path: String { "/items" }
     }
 }

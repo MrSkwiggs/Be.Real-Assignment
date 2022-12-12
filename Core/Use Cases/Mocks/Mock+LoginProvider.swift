@@ -10,6 +10,7 @@ import Combine
 import Networking
 
 extension Mock {
+    /// A Mock implementation of the Login Contract. Can be configured to succeed or fail as necessary.
     open class LoginProvider: LoginContract {
         
         private let sessionSubject: PassthroughSubject<Session, Never> = .init()

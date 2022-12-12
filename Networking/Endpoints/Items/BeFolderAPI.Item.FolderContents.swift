@@ -9,12 +9,19 @@ import Foundation
 import Netswift
 
 public extension BeFolderAPI.Item {
+    
+    /// API Request that allows fetching a folder's contents.
     class FolderContents: BeFolderAuthenticatedEndpoint {
         public typealias Response = [Inode]
         
         public let id: Inode.ID
         public let token: String
         
+        /// Fetches the contents of a folder by its ID.
+        ///
+        /// - parameters:
+        ///     - id: The folder's ID.
+        ///     - token: The authentication token.
         public init(id: Inode.ID, token: String) {
             self.id = id
             self.token = token

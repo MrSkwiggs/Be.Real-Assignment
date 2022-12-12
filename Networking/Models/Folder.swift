@@ -7,4 +7,5 @@
 
 import Foundation
 
+/// A Folder is essentially equivalent to the base `Inode` implementation.
 public typealias Folder = Inode

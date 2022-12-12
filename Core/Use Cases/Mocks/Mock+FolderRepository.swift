@@ -10,6 +10,8 @@ import Combine
 import Networking
 
 extension Mock {
+    
+    /// A mock implementation of the FolderRepositoryContract, which can be configured to succeed or fail as necessary
     open class FolderRepository: FolderRepositoryContract {
         
         public var folderContentsResult: Result<[Inode], Error>
@@ -17,6 +19,9 @@ extension Mock {
         public var uploadFileResult: Result<Inode, Error>
         public var deleteItemResult: Result<Void, Error>
         
+        /// Creates an instance of this Mock with pre-defined results for each of its functions.
+        ///
+        /// Defaults to `.success` results for all functions.
         public init(folderContentsResult: Result<[Inode], Error> = .success(Networking.Mock.folders()),
                     createFolderResult: Result<Inode, Error> = .success(Networking.Mock.folder),
                     uploadFileResult: Result<Inode, Error> = .success(Networking.Mock.file),

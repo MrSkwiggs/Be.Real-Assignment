@@ -9,12 +9,19 @@ import Foundation
 import Netswift
 
 public extension BeFolderAPI.Item {
+    
+    /// API Request that retrieves a text file's contents.
     class TextData: BeFolderAuthenticatedEndpoint {
         public typealias Response = String
         
         public let id: File.ID
         public let token: String
         
+        /// Fetches the contents of a text file by its ID.
+        ///
+        /// - parameters:
+        ///     - id: The file's ID.
+        ///     - token: The authentication token.
         public init(id: Inode.ID, token: String) {
             self.id = id
             self.token = token

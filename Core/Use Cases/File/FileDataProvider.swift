@@ -9,6 +9,7 @@ import Foundation
 import Combine
 import Networking
 
+/// Default implementation for the File Data Contract.
 public class FileDataProvider: FileDataContract {
     private let token: String
     

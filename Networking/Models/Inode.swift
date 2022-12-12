@@ -7,12 +7,17 @@
 
 import Foundation
 
+/// The base representation of files & folders.
 public class Inode: Identifiable, Codable, Equatable {
     public typealias ID = String
     
+    /// The inode's ID
     public let id: ID
+    /// The inode's parent ID, if applicable
     public let parentID: ID?
+    /// The inode's name
     public let name: String
+    /// The inode's last modification date
     public let modificationDate: Date
     
     internal init(id: Inode.ID, parentID: Inode.ID? = nil, name: String, modificationDate: Date) {
@@ -50,14 +55,17 @@ public class Inode: Identifiable, Codable, Equatable {
         self.modificationDate = date
     }
     
+    /// Attempts to cast this inode to a `File`
     public func asFile() -> File? {
         return self as? File
     }
     
     public static func == (lhs: Inode, rhs: Inode) -> Bool {
+        /// Defer equality checks to overridable implementations
         lhs.equals(rhs)
     }
     
+    /// An overridable function that children can use to perform equality checks
     internal func equals(_ other: Inode) -> Bool {
         id == other.id
         && parentID == other.parentID

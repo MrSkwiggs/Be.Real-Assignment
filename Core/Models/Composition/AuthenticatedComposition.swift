@@ -7,11 +7,17 @@
 
 import Foundation
 
+/// Authenticated App Composition Layer
+///
+/// Defines & holds references to dependencies that require authentication.
 public class AuthenticatedComposition: Composition {
     
+    /// The session linked to this composition
     public let session: Session
     
+    /// Folder Repository Contract
     public let folderContentsProvider: FolderRepositoryContract
+    /// File Data Contract
     public let fileDataProvider: FileDataContract
     
     internal init(super: Composition,

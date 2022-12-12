@@ -37,7 +37,6 @@
 		E7BE086A292543070097ED64 /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7BE0854292543070097ED64 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E7BE087B292543140097ED64 /* Networking.docc in Sources */ = {isa = PBXBuildFile; fileRef = E7BE087A292543140097ED64 /* Networking.docc */; };
 		E7BE0881292543140097ED64 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7BE0877292543140097ED64 /* Networking.framework */; };
-		E7BE0888292543140097ED64 /* NetworkingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE0887292543140097ED64 /* NetworkingTests.swift */; };
 		E7BE0889292543140097ED64 /* Networking.h in Headers */ = {isa = PBXBuildFile; fileRef = E7BE0879292543140097ED64 /* Networking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E7BE08952925438F0097ED64 /* Composition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE08942925438F0097ED64 /* Composition.swift */; };
 		E7BE0898292550180097ED64 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE0897292550180097ED64 /* LoginView.swift */; };
@@ -67,6 +66,8 @@
 		E7BE08DA29259F220097ED64 /* FolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE08D929259F220097ED64 /* FolderView.swift */; };
 		E7BE08DC29259F4F0097ED64 /* FolderView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE08DB29259F4F0097ED64 /* FolderView+ViewModel.swift */; };
 		E7BE08DF29259FB70097ED64 /* FolderRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE08DE29259FB70097ED64 /* FolderRepository.swift */; };
+		E7E6471C294496A4009EDE91 /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E6471B294496A4009EDE91 /* UserTests.swift */; };
+		E7E6472029472EEC009EDE91 /* ViewModelProvider+SessionViewModelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E6471F29472EEC009EDE91 /* ViewModelProvider+SessionViewModelProvider.swift */; };
 		E7EF431D2940EACE00E8749B /* PublisherExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EF431C2940EACE00E8749B /* PublisherExtensionTests.swift */; };
 		E7F3D1A52937A36F0031B4A0 /* FileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F3D1A42937A36F0031B4A0 /* FileView.swift */; };
 		E7F3D1A72937A3BE0031B4A0 /* ImageView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F3D1A62937A3BE0031B4A0 /* ImageView+ViewModel.swift */; };
@@ -203,7 +204,6 @@
 		E7BE0879292543140097ED64 /* Networking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Networking.h; sourceTree = "<group>"; };
 		E7BE087A292543140097ED64 /* Networking.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Networking.docc; sourceTree = "<group>"; };
 		E7BE0880292543140097ED64 /* NetworkingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetworkingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E7BE0887292543140097ED64 /* NetworkingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingTests.swift; sourceTree = "<group>"; };
 		E7BE08942925438F0097ED64 /* Composition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Composition.swift; sourceTree = "<group>"; };
 		E7BE0897292550180097ED64 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		E7BE0899292550230097ED64 /* LoginView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginView+ViewModel.swift"; sourceTree = "<group>"; };
@@ -229,6 +229,8 @@
 		E7BE08D929259F220097ED64 /* FolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderView.swift; sourceTree = "<group>"; };
 		E7BE08DB29259F4F0097ED64 /* FolderView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FolderView+ViewModel.swift"; sourceTree = "<group>"; };
 		E7BE08DE29259FB70097ED64 /* FolderRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderRepository.swift; sourceTree = "<group>"; };
+		E7E6471B294496A4009EDE91 /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
+		E7E6471F29472EEC009EDE91 /* ViewModelProvider+SessionViewModelProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModelProvider+SessionViewModelProvider.swift"; sourceTree = "<group>"; };
 		E7EF431C2940EACE00E8749B /* PublisherExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublisherExtensionTests.swift; sourceTree = "<group>"; };
 		E7F3D1A42937A36F0031B4A0 /* FileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileView.swift; sourceTree = "<group>"; };
 		E7F3D1A62937A3BE0031B4A0 /* ImageView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageView+ViewModel.swift"; sourceTree = "<group>"; };
@@ -429,6 +431,7 @@
 			isa = PBXGroup;
 			children = (
 				E7BE08BC29257C540097ED64 /* ViewModelProvider.swift */,
+				E7E6471F29472EEC009EDE91 /* ViewModelProvider+SessionViewModelProvider.swift */,
 			);
 			path = Composition;
 			sourceTree = "<group>";
@@ -440,7 +443,6 @@
 				E7BE0856292543070097ED64 /* Core.h */,
 				E759B703293DEA2500A21B41 /* Extensions */,
 				E7BE08BE29257EE10097ED64 /* Models */,
-				E7F3D1AB2937A4270031B4A0 /* Protocols */,
 				E7BE089B2925550D0097ED64 /* Use Cases */,
 			);
 			path = Core;
@@ -472,7 +474,7 @@
 		E7BE0886292543140097ED64 /* NetworkingTests */ = {
 			isa = PBXGroup;
 			children = (
-				E7BE0887292543140097ED64 /* NetworkingTests.swift */,
+				E7E6471B294496A4009EDE91 /* UserTests.swift */,
 			);
 			path = NetworkingTests;
 			sourceTree = "<group>";
@@ -634,13 +636,6 @@
 				E75E532B294095C9009CE877 /* File.swift */,
 			);
 			path = File;
-			sourceTree = "<group>";
-		};
-		E7F3D1AB2937A4270031B4A0 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Protocols;
 			sourceTree = "<group>";
 		};
 		E7F3D1BB2937D6C10031B4A0 /* Create */ = {
@@ -917,6 +912,7 @@
 				E7F3D1C42937F7DA0031B4A0 /* FolderView.UploadImageView+ViewModel.swift in Sources */,
 				E7F3D1A52937A36F0031B4A0 /* FileView.swift in Sources */,
 				E7BE0849292542280097ED64 /* AppDelegate.swift in Sources */,
+				E7E6472029472EEC009EDE91 /* ViewModelProvider+SessionViewModelProvider.swift in Sources */,
 				E759B702293DE4E800A21B41 /* UserView.swift in Sources */,
 				E7BE08C2292583430097ED64 /* RootView+ViewModel.swift in Sources */,
 				E7BE08DA29259F220097ED64 /* FolderView.swift in Sources */,
@@ -1009,7 +1005,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7BE0888292543140097ED64 /* NetworkingTests.swift in Sources */,
+				E7E6471C294496A4009EDE91 /* UserTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

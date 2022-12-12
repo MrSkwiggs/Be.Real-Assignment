@@ -9,6 +9,7 @@ import Foundation
 import Combine
 import Networking
 
+/// Default implementation for the Login Contract.
 public class LoginProvider: LoginContract {
     
     private let sessionSubject: PassthroughSubject<Session, Never> = .init()

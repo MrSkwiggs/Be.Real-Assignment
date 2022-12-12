@@ -8,11 +8,16 @@
 import Foundation
 
 public extension BeFolderAPI {
+    
+    /// API Request that fetches user info for the given token.
     class User: BeFolderAuthenticatedEndpoint {
         public typealias Response = Networking.User
         
         public let token: String
         
+        /// Fetches the User info for the given token.
+        ///
+        /// - parameter token: The authentication token.
         public init(token: String) {
             self.token = token
         }

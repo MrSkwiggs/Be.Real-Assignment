@@ -11,6 +11,7 @@ import Foundation
 public enum File {}
 
 public extension File {
+    /// Defines what underlying Data type a File handles.
     enum Data {
         case image(data: Foundation.Data)
         case text(string: String)

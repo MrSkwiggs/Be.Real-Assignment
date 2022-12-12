@@ -8,11 +8,17 @@
 import Foundation
 import Netswift
 
+/// A type that represents how a BeFolder request is routed, serialised, decoded & performed.
 public protocol BeFolderEndpoint: NetswiftRoute, NetswiftRequest, NetswiftRequestPerformable {}
 
+/// A type that represents a BeFolder request that requires authentication
 public protocol BeFolderAuthenticatedEndpoint: BeFolderEndpoint {
+    
+    /// This request's auth token.
     var token: String { get }
 }
+
+// MARK: - Default Implementations
 
 public extension BeFolderEndpoint {
     var scheme: String { GenericScheme.http.rawValue }
@@ -36,6 +42,9 @@ public extension BeFolderEndpoint where Response: Decodable {
         Self.defaultDeserialise(incomingData: incomingData)
     }
     
+    /// Default deserialisation logic.
+    ///
+    /// Can be used to decode any decodable type, but defaults to decoding the `Response` type.
     static func defaultDeserialise<T: Decodable>(type: T.Type = Response.self, incomingData: Data) -> NetswiftResult<T> {
         do {
             let decoder = JSONDecoder()
@@ -50,6 +59,8 @@ public extension BeFolderEndpoint where Response: Decodable {
         }
     }
 }
+
+// MARK: - Default authentication request serialisation
 
 public extension BeFolderAuthenticatedEndpoint {
     func serialise() -> NetswiftResult<URLRequest> {

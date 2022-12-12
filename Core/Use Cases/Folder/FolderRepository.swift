@@ -9,6 +9,7 @@ import Foundation
 import Combine
 import Networking
 
+/// Default implementation for the Folder Repository Contract.
 public class FolderRepository: FolderRepositoryContract {
     private let token: String
     

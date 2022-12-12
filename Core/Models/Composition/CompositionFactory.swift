@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Main implementation for the Composition Factory Contract. Uses the main implementations of its dependencies.
 class CompositionFactory: CompositionFactoryContract {
     func authenticatedComposition(from session: Session, with root: Composition) -> AuthenticatedComposition {
         .init(super: root,
@@ -17,6 +18,7 @@ class CompositionFactory: CompositionFactoryContract {
 }
 
 extension Mock {
+    /// Mock implementation for the Composition Factory Contract. Uses the mock implementations of its dependencies.
     class CompositionFactory: CompositionFactoryContract {
         func authenticatedComposition(from session: Session, with root: Composition) -> AuthenticatedComposition {
             .init(super: root,

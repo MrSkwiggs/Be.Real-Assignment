@@ -11,6 +11,8 @@ import Foundation
 public enum Login {}
 
 public extension Login {
+    
+    /// Possible Login Errors.
     enum Error: Swift.Error, Equatable {
         /// Username and/or password contains an invalid character (such as `:`)
         case invalidCharacter

@@ -8,10 +8,15 @@
 import Foundation
 import Networking
 
+/// App composition layer.
+///
+/// Defines & holds references to dependencies.
 public class Composition {
     
+    /// Login Contract Dependency
     public let loginProvider: LoginContract
     
+    /// Factory dependency, which can be used to generate authenticated composition objects.
     let compositionFactory: CompositionFactoryContract
     
     init(loginProvider: LoginContract, compositionFactory: CompositionFactoryContract) {
@@ -19,6 +24,7 @@ public class Composition {
         self.compositionFactory = compositionFactory
     }
     
+    /// Generates an `AuthenticatedComposition` object from the given `Session` object
     public func authenticatedComposition(for session: Session) -> AuthenticatedComposition {
         compositionFactory.authenticatedComposition(from: session, with: self)
     }

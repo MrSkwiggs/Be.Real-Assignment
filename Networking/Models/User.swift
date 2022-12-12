@@ -7,10 +7,14 @@
 
 import Foundation
 
+/// A User object.
 public struct User: Codable, Equatable {
     
+    /// The user's first name
     public let firstName: String
+    /// The user's last name
     public let lastName: String
+    /// The user's root folder
     public let rootFolder: Folder
     
     internal init(firstName: String, lastName: String, rootFolder: Folder) {
