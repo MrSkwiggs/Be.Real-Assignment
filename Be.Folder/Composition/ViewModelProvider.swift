@@ -20,14 +20,17 @@ class ViewModelProvider: ObservableObject {
         self.root = root
     }
     
+    /// Provides a RootView ViewModel
     var rootViewModel: RootView.ViewModel {
         .init(loginProvider: root.loginProvider)
     }
     
+    /// Provides a LoginView ViewModel
     var loginViewModel: LoginView.ViewModel {
         .init(loginProvider: root.loginProvider)
     }
     
+    /// Generates a Session ViewModel Provider from the given session
     func sessionViewModelProvider(session: Session) -> SessionViewModelProvider {
         .init(root: root.authenticatedComposition(for: session))
     }

@@ -9,6 +9,7 @@ import SwiftUI
 import Core
 
 extension FolderView {
+    /// A modal view that allows the user to create a new folder
     struct CreateNewFolderView: View {
         
         @StateObject

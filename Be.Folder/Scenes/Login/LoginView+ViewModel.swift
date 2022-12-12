@@ -11,28 +11,36 @@ import Core
 import UIKit
 
 extension LoginView {
+    /// The ViewModel for the LoginView
     class ViewModel: ObservableObject {
         
         private let loginProvider: LoginContract
         
+        /// The user's username credential
         @Published
         var username: String = ""
         
+        /// Whether or not the username field has an error
         @Published
         var usernameFieldHasError: Bool = false
         
+        /// The user's password credential
         @Published
         var password: String = ""
         
+        /// Whether or not the password field has an error
         @Published
         var passwordFieldHasError: Bool = false
         
+        /// Whether or not the user can press the login button
         @Published
         var canLogin: Bool = false
         
+        /// Whether or not the view model is busy with logging in the user.
         @Published
         var isBusyLoggingIn: Bool = false
         
+        /// Whether or not the view model ran into an error while logging the user in.
         @Published
         var error: String?
         

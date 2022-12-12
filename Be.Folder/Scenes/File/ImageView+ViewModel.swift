@@ -11,18 +11,22 @@ import Networking
 import Combine
 
 extension FileView {
+    /// The View Model for a FileView
     class ViewModel: ObservableObject {
         typealias File = Networking.File
         
         private var fetch: AnyCancellable?
         private let file: File
         
+        /// The file's contents
         @Published
         var fileData: Core.File.Data?
         
+        /// The title to be used in the navbar
         @Published
         var navbarTitle: String = ""
         
+        /// Whether or not the view model ran into an error.
         @Published
         var hasError: Bool = false
         

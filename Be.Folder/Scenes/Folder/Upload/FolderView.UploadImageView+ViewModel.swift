@@ -11,23 +11,30 @@ import Core
 import Combine
 
 extension FolderView.UploadImageView {
+    /// The ViewModel of a UploadImageView
     class ViewModel: ObservableObject {
         
+        /// The user's selected image, if they have picked one yet.
         @Published
         var selectedImage: UIImage?
         
+        /// Whether or not an image is being loaded.
         @Published
         var isImageLoading: Bool = false
         
+        /// The name of the image
         @Published
         var name: String = ""
         
+        /// Whether or not the user can press the upload button
         @Published
         var canUpload: Bool = false
         
+        /// Whether or not the image is being uploaded & created.
         @Published
         var isLoading: Bool = false
         
+        /// Whether or not the view model ran into an error when uploading the image.
         @Published
         var hasError: Bool = false
         

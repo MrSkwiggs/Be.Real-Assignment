@@ -11,19 +11,25 @@ import Core
 import Networking
 
 extension FolderView.CreateNewFolderView {
+    /// The ViewModel of a CreateNewFolderView
     class ViewModel: ObservableObject {
+        /// Whether or not the new folder's name is valid.
         @Published
         var isNameValid: Bool = true
         
+        /// Whether or not the user is allowed to tap the create folder button.
         @Published
         var canCreateFolder: Bool = false
         
+        /// The new folder's name.
         @Published
         var folderName: String = ""
         
+        /// Whether or not the view model is busy with creating the folder.
         @Published
         var isLoading: Bool = false
         
+        /// Whether or not the view model ran into an error while creating the folder.
         @Published
         var error: String?
         

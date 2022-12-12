@@ -8,6 +8,7 @@
 import SwiftUI
 import Networking
 
+/// Shows a User's info
 struct UserView: View {
     
     let user: User

@@ -8,6 +8,7 @@
 import Core
 import SwiftUI
 
+/// A view that allows a user to log in with their credentials
 struct LoginView: View {
     
     @StateObject

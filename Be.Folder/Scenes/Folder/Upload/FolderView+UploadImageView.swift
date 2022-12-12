@@ -10,6 +10,7 @@ import PhotosUI
 import Core
 
 extension FolderView {
+    /// A modal view that allows the user to select and upload an image.
     struct UploadImageView: View {
         
         @StateObject

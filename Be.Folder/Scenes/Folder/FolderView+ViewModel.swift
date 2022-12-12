@@ -11,6 +11,7 @@ import Core
 import Networking
 
 extension FolderView {
+    /// The ViewModel of a FolderView
     class ViewModel: ObservableObject {
         
         typealias File = Networking.File
@@ -18,15 +19,19 @@ extension FolderView {
         private let currentFolder: Inode
         private let folderContentsProvider: FolderRepositoryContract
         
+        /// The folder's sub-folders
         @Published
         var folders: [Inode] = []
         
+        /// The folder's files
         @Published
         var files: [File] = []
         
+        /// Whether or not the view model ran into an issue.
         @Published
         var hasError: Bool = false
         
+        /// The path/breadcrumbs of the folder with regards with its parent (and its parent's parent, etc.).
         let breadcrumbs: String
         
         private var fetch: AnyCancellable?
@@ -63,23 +68,27 @@ extension FolderView {
                 })
         }
         
+        /// Tries to fetch the folder contents
         func retry() {
             hasError = false
             getFolderContents()
         }
         
+        /// Generates a CreateFolderViewModel, configures it and returns it.
         func createFolderViewModel(from viewModelProvider: ViewModelProvider.SessionViewModelProvider) -> CreateNewFolderView.ViewModel {
             viewModelProvider.createFolderViewModel(currentFolderID: currentFolder.id) { inode in
                 self.getFolderContents()
             }
         }
         
+        /// Generates a UploadImageViewModel, configures it and returns it.
         func uploadImageViewModel(from viewModelProvider: ViewModelProvider.SessionViewModelProvider) -> UploadImageView.ViewModel {
             viewModelProvider.uploadImageViewModel(currentFolderID: currentFolder.id) {
                 self.getFolderContents()
             }
         }
         
+        /// Deletes the item with the given ID
         func deleteItem(itemID: Inode.ID) {
             guard delete == nil else { return }
             delete = folderContentsProvider

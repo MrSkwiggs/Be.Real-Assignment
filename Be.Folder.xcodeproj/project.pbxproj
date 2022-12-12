@@ -68,6 +68,7 @@
 		E7BE08DF29259FB70097ED64 /* FolderRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BE08DE29259FB70097ED64 /* FolderRepository.swift */; };
 		E7E6471C294496A4009EDE91 /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E6471B294496A4009EDE91 /* UserTests.swift */; };
 		E7E6472029472EEC009EDE91 /* ViewModelProvider+SessionViewModelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E6471F29472EEC009EDE91 /* ViewModelProvider+SessionViewModelProvider.swift */; };
+		E7E64723294732D2009EDE91 /* PinchZoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E64722294732D2009EDE91 /* PinchZoomView.swift */; };
 		E7EF431D2940EACE00E8749B /* PublisherExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EF431C2940EACE00E8749B /* PublisherExtensionTests.swift */; };
 		E7F3D1A52937A36F0031B4A0 /* FileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F3D1A42937A36F0031B4A0 /* FileView.swift */; };
 		E7F3D1A72937A3BE0031B4A0 /* ImageView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F3D1A62937A3BE0031B4A0 /* ImageView+ViewModel.swift */; };
@@ -231,6 +232,7 @@
 		E7BE08DE29259FB70097ED64 /* FolderRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderRepository.swift; sourceTree = "<group>"; };
 		E7E6471B294496A4009EDE91 /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
 		E7E6471F29472EEC009EDE91 /* ViewModelProvider+SessionViewModelProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModelProvider+SessionViewModelProvider.swift"; sourceTree = "<group>"; };
+		E7E64722294732D2009EDE91 /* PinchZoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinchZoomView.swift; sourceTree = "<group>"; };
 		E7EF431C2940EACE00E8749B /* PublisherExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublisherExtensionTests.swift; sourceTree = "<group>"; };
 		E7F3D1A42937A36F0031B4A0 /* FileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileView.swift; sourceTree = "<group>"; };
 		E7F3D1A62937A3BE0031B4A0 /* ImageView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageView+ViewModel.swift"; sourceTree = "<group>"; };
@@ -378,6 +380,7 @@
 		E7BE081B292540810097ED64 /* Be.Folder */ = {
 			isa = PBXGroup;
 			children = (
+				E7E64721294732CB009EDE91 /* Views */,
 				E7BE084E292542B40097ED64 /* Composition */,
 				E7BE084A2925429B0097ED64 /* Scenes */,
 				E7BE0820292540820097ED64 /* Assets.xcassets */,
@@ -617,6 +620,14 @@
 				E75E532729409289009CE877 /* FolderRepositoryContract.swift */,
 			);
 			path = Folder;
+			sourceTree = "<group>";
+		};
+		E7E64721294732CB009EDE91 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E7E64722294732D2009EDE91 /* PinchZoomView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		E7F3D1A32937A3670031B4A0 /* File */ = {
@@ -912,6 +923,7 @@
 				E7F3D1C42937F7DA0031B4A0 /* FolderView.UploadImageView+ViewModel.swift in Sources */,
 				E7F3D1A52937A36F0031B4A0 /* FileView.swift in Sources */,
 				E7BE0849292542280097ED64 /* AppDelegate.swift in Sources */,
+				E7E64723294732D2009EDE91 /* PinchZoomView.swift in Sources */,
 				E7E6472029472EEC009EDE91 /* ViewModelProvider+SessionViewModelProvider.swift in Sources */,
 				E759B702293DE4E800A21B41 /* UserView.swift in Sources */,
 				E7BE08C2292583430097ED64 /* RootView+ViewModel.swift in Sources */,

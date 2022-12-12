@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// A view used to display a folder's contents (subfolders & files).
 struct FolderView: View {
     
     @EnvironmentObject
