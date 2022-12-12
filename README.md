@@ -6,10 +6,19 @@ This is my implementation of the assignment for the Sr. iOS Engineer position at
 
 The app is built using `Swift`, `SwiftUI` & `Combine`.
 
+# Documentation
+Included with this assignment, as DocC files (but can also very easily be re-generated from Xcode)
+
+![docc](/Screenshots/docc.png)
+
+Almost all classes and struct have documentation written. This also spans all 3 frameworks (UI, Core & Networking), as well as the Netswift dependency
+
 # Architecture
 The app is built using an MVVM architecture, where Models & other controllers (business logic) are nested in separate targets (Core & Networking).
 This enforces separation of duties & helps mitigate code-spaghettification, but also allows for reuse in other projects.
 Additionally, each framework is tested internally without requiring to expose private or internal APIs publicly.
+
+For the Networking layer, I am using a 3rd-party dependency as a Swift Package ([Netswift](https://github.com/MrSkwiggs/Netswift)), which I wrote myself a couple years ago. More info [here](#networking).
 
 ## UI
 There are 8 Views (Scenes) and ViewModels, as well as 2 non-view related controllers/managers.
