@@ -6,6 +6,15 @@ This is my implementation of the assignment for the Sr. iOS Engineer position at
 
 The app is built using `Swift`, `SwiftUI` & `Combine`.
 
+# Table of Contents
+- [Documentation](#documentation)
+- [Architecture](#architecture)
+  - [UI](#ui)
+  - [Core](#core)
+  - [Networking](#networking)
+- [Tests](#tests)
+- [App Shortcomings](#app-shortcomings)
+
 # Documentation
 Included with this assignment, as DocC files (but can also very easily be re-generated from Xcode)
 
@@ -212,7 +221,7 @@ Likewise, errors and issues are relayed to the user, and more often that not, le
 
 # App shortcomings
 
-The app does not to persist any data (such as user session). This was a conscious decision, but because the app is written in a way that permits dependency injection, implementing this would not be too much work.
+The app does not to persist any data (such as user session). This was a conscious decision (due to time constraints), but because the app is written in a way that permits dependency injection, implementing this would not be too much work.
 
 Also, since I implemented support for text files, it would be very easy to provide a text-editing functionality to the user; 
 - load up the text file's contents in a text field
